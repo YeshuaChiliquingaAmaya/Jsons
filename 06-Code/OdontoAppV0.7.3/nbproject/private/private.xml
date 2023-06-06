@@ -3,9 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/DARÍO%20BENAVIDES/Desktop/ESPE/MATERIA_OFICIAL_SEGUNDO/Poo/OdontoApp/src/ec/edu/espe/odontoapp/view/OdontoApp.java</file>
-            <file>file:/C:/Users/DARÍO%20BENAVIDES/Desktop/ESPE/MATERIA_OFICIAL_SEGUNDO/Poo/OdontoApp/src/ec/edu/espe/odontoapp/view/AssignDatesMenu.java</file>
-            <file>file:/C:/Users/DARÍO%20BENAVIDES/Desktop/ESPE/MATERIA_OFICIAL_SEGUNDO/Poo/OdontoApp/src/ec/edu/espe/odontoapp/view/PatientsMenu.java</file>
+            <file>file:/C:/Users/wfcad/Desktop/JsonsGR/Jsons/06-Code/OdontoAppV0.7.3/src/ec/edu/espe/odontoapp/view/EditPatientInformationMenu.java</file>
+            <file>file:/C:/Users/wfcad/Desktop/JsonsGR/Jsons/06-Code/OdontoAppV0.7.3/src/ec/edu/espe/odontoapp/view/OdontoApp.java</file>
+            <file>file:/C:/Users/wfcad/Desktop/JsonsGR/Jsons/06-Code/OdontoAppV0.7.3/src/ec/edu/espe/odontoapp/view/PatientsMenu.java</file>
+            <file>file:/C:/Users/wfcad/Desktop/JsonsGR/Jsons/06-Code/OdontoAppV0.7.3/src/ec/edu/espe/odontoapp/model/Consultory.java</file>
+            <file>file:/C:/Users/wfcad/Desktop/JsonsGR/Jsons/06-Code/OdontoAppV0.7.3/src/ec/edu/espe/odontoapp/view/BuyServicesMenu.java</file>
+            <file>file:/C:/Users/wfcad/Desktop/JsonsGR/Jsons/06-Code/OdontoAppV0.7.3/src/ec/edu/espe/odontoapp/view/AssignDatesMenu.java</file>
+            <file>file:/C:/Users/wfcad/Desktop/JsonsGR/Jsons/06-Code/OdontoAppV0.7.3/src/ec/edu/espe/odontoapp/model/Patient.java</file>
+            <file>file:/C:/Users/wfcad/Desktop/JsonsGR/Jsons/06-Code/OdontoAppV0.7.3/src/ec/edu/espe/odontoapp/model/JsonFile.java</file>
+            <file>file:/C:/Users/wfcad/Desktop/JsonsGR/Jsons/06-Code/OdontoAppV0.7.3/src/ec/edu/espe/odontoapp/view/DeletePatientMenu.java</file>
         </group>
     </open-files>
 </project-private>
