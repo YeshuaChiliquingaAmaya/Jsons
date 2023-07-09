@@ -1,6 +1,10 @@
 package com.jsons.odontoapp.model;
 
+<<<<<<< HEAD
 import java.sql.Date;
+=======
+import java.util.Date;
+>>>>>>> c49b545044778abdefe8bad8362cc181ba5975c3
 
 /**
  *
@@ -19,6 +23,7 @@ public class ClinicalHistory {
     private String patientTreatment;
     private Date treatmentDateStart;
     private Date treatmentEndDate;
+<<<<<<< HEAD
     
 
     @Override
@@ -36,6 +41,22 @@ public class ClinicalHistory {
                treatmentEndDate;
     }
 
+=======
+
+    public ClinicalHistory(int id, String name, int age, float weight, float height, String diseaseSymptoms, String cellphone, String systemicDiseases, String patientTreatment, Date treatmentDateStart, Date treatmentEndDate) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.weight = weight;
+        this.height = height;
+        this.diseaseSymptoms = diseaseSymptoms;
+        this.cellphone = cellphone;
+        this.systemicDiseases = systemicDiseases;
+        this.patientTreatment = patientTreatment;
+        this.treatmentDateStart = treatmentDateStart;
+        this.treatmentEndDate = treatmentEndDate;
+    }
+>>>>>>> c49b545044778abdefe8bad8362cc181ba5975c3
     
     /**
      * @return the id
@@ -163,33 +184,47 @@ public class ClinicalHistory {
         this.patientTreatment = patientTreatment;
     }
 
+<<<<<<< HEAD
     /**
      * @return the treatmentDateStart
      */
+=======
+>>>>>>> c49b545044778abdefe8bad8362cc181ba5975c3
     public Date getTreatmentDateStart() {
         return treatmentDateStart;
     }
 
+<<<<<<< HEAD
     /**
      * @param treatmentDateStart the treatmentDateStart to set
      */
+=======
+>>>>>>> c49b545044778abdefe8bad8362cc181ba5975c3
     public void setTreatmentDateStart(Date treatmentDateStart) {
         this.treatmentDateStart = treatmentDateStart;
     }
 
+<<<<<<< HEAD
     /**
      * @return the treatmentEndDate
      */
+=======
+>>>>>>> c49b545044778abdefe8bad8362cc181ba5975c3
     public Date getTreatmentEndDate() {
         return treatmentEndDate;
     }
 
+<<<<<<< HEAD
     /**
      * @param treatmentEndDate the treatmentEndDate to set
      */
+=======
+>>>>>>> c49b545044778abdefe8bad8362cc181ba5975c3
     public void setTreatmentEndDate(Date treatmentEndDate) {
         this.treatmentEndDate = treatmentEndDate;
     }
+
+    
 
 }
 

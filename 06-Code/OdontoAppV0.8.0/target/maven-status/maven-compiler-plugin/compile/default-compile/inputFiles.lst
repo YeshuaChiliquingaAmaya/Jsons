@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.8.0\src\main\java\com\jsons\odontoapp\view\FrmPatients.java
 C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.8.0\src\main\java\com\jsons\odontoapp\controller\DentistController.java
 C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.8.0\src\main\java\com\jsons\odontoapp\model\Patient.java
@@ -10,3 +11,20 @@ C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\Odo
 C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.8.0\src\main\java\com\jsons\odontoapp\model\ClinicalHistory.java
 C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.8.0\src\main\java\com\jsons\odontoapp\model\Service.java
 C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.8.0\src\main\java\com\jsons\odontoapp\view\OdontoApp.java
+=======
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/view/TextPatients.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/view/ListPatients.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/controller/PatientController.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/controller/DentistController.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/model/ClinicalHistory.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/model/Dentist.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/view/EditorPatients.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/view/FrmPatients.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/model/Patient.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/model/Service.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/model/Appointment.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/controller/ServiceController.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/view/OdontoApp.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/controller/AppointmentController.java
+/home/yeshualinux/Dropbox/OOPrograming/FirstParcial/Jsons/06-Code/OdontoAppV0.8.0/src/main/java/com/jsons/odontoapp/view/EditotPatientsJson.java
+>>>>>>> c49b545044778abdefe8bad8362cc181ba5975c3
