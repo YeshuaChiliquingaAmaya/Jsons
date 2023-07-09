@@ -40,12 +40,16 @@ public class OdontoApp extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
-        setBackground(new java.awt.Color(204, 0, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocation(new java.awt.Point(0, 0));
+        setSize(new java.awt.Dimension(0, 0));
 
+        jLabel1.setBackground(new java.awt.Color(255, 102, 255));
         jLabel1.setFont(new java.awt.Font("Constantia", 0, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 102, 102));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("OdontoApp");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         mnubar.setBackground(java.awt.Color.blue);
         mnubar.setForeground(java.awt.Color.red);
@@ -99,16 +103,16 @@ public class OdontoApp extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
+                .addGap(126, 126, 126)
                 .addComponent(jLabel1)
                 .addContainerGap(139, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
+                .addGap(80, 80, 80)
                 .addComponent(jLabel1)
-                .addContainerGap(133, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();

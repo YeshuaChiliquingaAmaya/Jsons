@@ -1,5 +1,7 @@
 package com.jsons.odontoapp.model;
 
+import java.sql.Date;
+
 /**
  *
  * @author Ruben Benavides, Jsons, DCCO-ESPE
@@ -9,14 +11,31 @@ public class ClinicalHistory {
     private int id;
     private String name;
     private int age;
-    private float weight;
-    private float height;
+    private double weight;
+    private double height;
     private String diseaseSymptoms;
     private String cellphone;
     private String systemicDiseases;
     private String patientTreatment;
-    private String treatmentDateStart;
-    private String treatmentEndDate;
+    private Date treatmentDateStart;
+    private Date treatmentEndDate;
+    
+
+    @Override
+    public String toString() {
+        return name + "\n" + 
+               "id: " + id + "\n" + 
+               age + "\n" + 
+               weight + "\n" + 
+               height + "\n" + 
+               diseaseSymptoms + "\n" + 
+               cellphone + "\n" + 
+               systemicDiseases + "\n" + 
+               patientTreatment + "\n" + 
+               treatmentDateStart + "\n" + 
+               treatmentEndDate;
+    }
+
     
     /**
      * @return the id
@@ -63,28 +82,28 @@ public class ClinicalHistory {
     /**
      * @return the weight
      */
-    public float getWeight() {
+    public double getWeight() {
         return weight;
     }
 
     /**
      * @param weight the weight to set
      */
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
     /**
      * @return the height
      */
-    public float getHeight() {
+    public double getHeight() {
         return height;
     }
 
     /**
      * @param height the height to set
      */
-    public void setHeight(float height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
@@ -147,28 +166,28 @@ public class ClinicalHistory {
     /**
      * @return the treatmentDateStart
      */
-    public String getTreatmentDateStart() {
+    public Date getTreatmentDateStart() {
         return treatmentDateStart;
     }
 
     /**
      * @param treatmentDateStart the treatmentDateStart to set
      */
-    public void setTreatmentDateStart(String treatmentDateStart) {
+    public void setTreatmentDateStart(Date treatmentDateStart) {
         this.treatmentDateStart = treatmentDateStart;
     }
 
     /**
      * @return the treatmentEndDate
      */
-    public String getTreatmentEndDate() {
+    public Date getTreatmentEndDate() {
         return treatmentEndDate;
     }
 
     /**
      * @param treatmentEndDate the treatmentEndDate to set
      */
-    public void setTreatmentEndDate(String treatmentEndDate) {
+    public void setTreatmentEndDate(Date treatmentEndDate) {
         this.treatmentEndDate = treatmentEndDate;
     }
 

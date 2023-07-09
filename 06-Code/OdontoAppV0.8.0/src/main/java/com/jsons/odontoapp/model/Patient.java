@@ -9,8 +9,20 @@ import java.util.ArrayList;
 public class Patient {
 
     private ClinicalHistory clinicalHistory;
+
+    public ArrayList<Service> getAcquiredServices() {
+        return acquiredServices;
+    }
+
+    public void setAcquiredServices(ArrayList<Service> acquiredServices) {
+        this.acquiredServices = acquiredServices;
+    }
     private ArrayList<Service> acquiredServices;
     private ArrayList<Appointment> appointments;
+
+    public String OnlyPatientsToString() {
+        return clinicalHistory.toString();
+    }
     
     /**
      * @return the clinicalHistory

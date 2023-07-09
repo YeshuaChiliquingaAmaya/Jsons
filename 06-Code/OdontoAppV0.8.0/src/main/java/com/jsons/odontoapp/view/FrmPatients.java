@@ -9,7 +9,7 @@ package com.jsons.odontoapp.view;
  * @author Ruben Benavides, Jsons, DCCO-ESPE
  */
 public class FrmPatients extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form FrmPatients
      */
@@ -41,6 +41,11 @@ public class FrmPatients extends javax.swing.JFrame {
         btnShowPatients.setText("Mostrar Pacientes");
 
         btnAddPatients.setText("Añadir Paciente");
+        btnAddPatients.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPatientsActionPerformed(evt);
+            }
+        });
 
         btnEditPatient.setText("Editar Paciente");
 
@@ -57,36 +62,40 @@ public class FrmPatients extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(124, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAddPatients)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnShowPatients)
-                                .addComponent(jLabel1))
-                            .addComponent(btnDeletePatient)
-                            .addComponent(btnEditPatient))
-                        .addGap(139, 139, 139))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnGoBack)
-                        .addGap(105, 105, 105))))
+                    .addComponent(btnShowPatients)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(4, 4, 4)
+                                    .addComponent(btnEditPatient))
+                                .addComponent(btnAddPatients)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addGap(8, 8, 8))
+                        .addComponent(btnDeletePatient)))
+                .addGap(142, 142, 142))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(108, 108, 108)
+                .addComponent(btnGoBack)
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addComponent(btnShowPatients)
                 .addGap(18, 18, 18)
                 .addComponent(btnAddPatients)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btnEditPatient)
-                .addGap(26, 26, 26)
+                .addGap(36, 36, 36)
+                .addComponent(btnShowPatients)
+                .addGap(31, 31, 31)
                 .addComponent(btnDeletePatient)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(45, 45, 45)
                 .addComponent(btnGoBack)
                 .addContainerGap())
         );
@@ -99,6 +108,13 @@ public class FrmPatients extends javax.swing.JFrame {
         odontoapp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnGoBackActionPerformed
+
+    private void btnAddPatientsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientsActionPerformed
+        FrmAddPatients frmAddPatients = new FrmAddPatients();
+        frmAddPatients.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_btnAddPatientsActionPerformed
 
     /**
      * @param args the command line arguments
