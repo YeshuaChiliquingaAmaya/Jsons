@@ -11,8 +11,8 @@ public class ClinicalHistory {
     private int id;
     private String name;
     private int age;
-    private float weight;
-    private float height;
+    private double weight;
+    private double height;
     private String diseaseSymptoms;
     private String cellphone;
     private String systemicDiseases;
@@ -20,19 +20,7 @@ public class ClinicalHistory {
     private Date treatmentDateStart;
     private Date treatmentEndDate;
 
-    public ClinicalHistory(int id, String name, int age, float weight, float height, String diseaseSymptoms, String cellphone, String systemicDiseases, String patientTreatment, Date treatmentDateStart, Date treatmentEndDate) {
-        this.id = id;
-        this.name = name;
-        this.age = age;
-        this.weight = weight;
-        this.height = height;
-        this.diseaseSymptoms = diseaseSymptoms;
-        this.cellphone = cellphone;
-        this.systemicDiseases = systemicDiseases;
-        this.patientTreatment = patientTreatment;
-        this.treatmentDateStart = treatmentDateStart;
-        this.treatmentEndDate = treatmentEndDate;
-    }
+     
     
     /**
      * @return the id
@@ -79,28 +67,28 @@ public class ClinicalHistory {
     /**
      * @return the weight
      */
-    public float getWeight() {
+    public double getWeight() {
         return weight;
     }
 
     /**
      * @param weight the weight to set
      */
-    public void setWeight(float weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
     /**
      * @return the height
      */
-    public float getHeight() {
+    public double getHeight() {
         return height;
     }
 
     /**
      * @param height the height to set
      */
-    public void setHeight(float height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
