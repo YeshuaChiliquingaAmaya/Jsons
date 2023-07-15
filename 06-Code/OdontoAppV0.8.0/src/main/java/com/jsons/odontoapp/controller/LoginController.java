@@ -17,7 +17,7 @@ import org.bson.Document;
  *
  * @author yeshualinux
  */
-public class MongoDB {
+public class LoginController {
     private static final String CONNECTION_STRING = "mongodb+srv://RBenavides:RBenavides@cluster0.js2ve9m.mongodb.net/";
         
     private static MongoClient mongoClient;
@@ -28,7 +28,7 @@ public class MongoDB {
     private JTextField txtPassword;
     private JTextField txtUsername;
     
-    public MongoDB(JTextField txtUsername, JTextField txtPassword) {
+    public LoginController(JTextField txtUsername, JTextField txtPassword) {
         this.txtUsername = txtUsername;
         this.txtPassword = txtPassword;
 }
@@ -62,7 +62,7 @@ public class MongoDB {
         String enteredPassword = txtPassword.getText();
 
         // Construir la consulta para buscar el documento con la contraseña encriptada correspondiente
-        Document query = new Document("password", CesarCipher.encrypt(enteredPassword, 3)); // Asegúrate de utilizar el mismo desplazamiento que se usó al encriptar
+        Document query = new Document("password", CesarCipherController.encrypt(enteredPassword, 3)); // Asegúrate de utilizar el mismo desplazamiento que se usó al encriptar
 
         // Realizar la consulta en la colección de la base de datos
         FindIterable<Document> result = collection.find(query);
@@ -77,8 +77,8 @@ public class MongoDB {
         if (found) {
             System.out.println("Contraseña válida.");
 
-            // Desencriptar la contraseña almacenada en MongoDB
-            String decryptedPassword = CesarCipher.decrypt(enteredPassword, 0); // Asegúrate de utilizar el mismo desplazamiento que se usó al encriptar
+            // Desencriptar la contraseña almacenada en LoginController
+            String decryptedPassword = CesarCipherController.decrypt(enteredPassword, 0); // Asegúrate de utilizar el mismo desplazamiento que se usó al encriptar
             System.out.println("Contraseña desencriptada: " + decryptedPassword);
 
             // Comparar la contraseña desencriptada con el valor ingresado
@@ -98,7 +98,7 @@ public class MongoDB {
         String enteredUsername = txtUsername.getText();
 
         // Construir la consulta para buscar el documento con el nombre de usuario encriptado correspondiente
-        Document query = new Document("username", CesarCipher.encrypt(enteredUsername, 3)); // Asegúrate de utilizar el mismo desplazamiento que se usó al encriptar
+        Document query = new Document("username", CesarCipherController.encrypt(enteredUsername, 3)); // Asegúrate de utilizar el mismo desplazamiento que se usó al encriptar
         
         // Realizar la consulta en la colección de la base de datos
         FindIterable<Document> result = collection.find(query);
@@ -113,8 +113,8 @@ public class MongoDB {
         if (found) {
             System.out.println("Username válida.");
 
-            // Desencriptar el nombre de usuario almacenado en MongoDB
-            String decryptedUsername = CesarCipher.decrypt(enteredUsername, 0); // Asegúrate de utilizar el mismo desplazamiento que se usó al encriptar
+            // Desencriptar el nombre de usuario almacenado en LoginController
+            String decryptedUsername = CesarCipherController.decrypt(enteredUsername, 0); // Asegúrate de utilizar el mismo desplazamiento que se usó al encriptar
             System.out.println("Username desencriptada: " + decryptedUsername);
 
             // Comparar el nombre de usuario desencriptado con el valor ingresado

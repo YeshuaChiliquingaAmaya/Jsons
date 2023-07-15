@@ -5,7 +5,7 @@ package com.jsons.odontoapp.controller;
  */
 
 
-public class CesarCipher {
+public class CesarCipherController {
     public static String encrypt(String plainText, int shift) {
         StringBuilder cipherText = new StringBuilder();
         for (char c : plainText.toCharArray()) {

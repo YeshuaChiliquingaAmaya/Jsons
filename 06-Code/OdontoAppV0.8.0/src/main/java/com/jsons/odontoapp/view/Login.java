@@ -4,7 +4,7 @@
  */
 package com.jsons.odontoapp.view;
 
-import com.jsons.odontoapp.controller.MongoDB;
+import com.jsons.odontoapp.controller.LoginController;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import org.bson.Document;
@@ -136,8 +136,8 @@ public class Login extends javax.swing.JFrame {
         String enteredUsername = txtUsername.getText();
         String enteredPassword = txtPassword.getText();
         
-        //Crear una instancia de la clase MongoDB pasando los valores del usuario y la contraseña
-        MongoDB login = new MongoDB(txtUsername, txtPassword);
+        //Crear una instancia de la clase LoginController pasando los valores del usuario y la contraseña
+        LoginController login = new LoginController(txtUsername, txtPassword);
         login.PasswordController();
         
         //Verificar el usuario y la contraseña

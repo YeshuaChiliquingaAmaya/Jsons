@@ -39,6 +39,9 @@
                 <Property name="text" type="java.lang.String" value="Comprar"/>
                 <Property name="toolTipText" type="java.lang.String" value="Presiona para comprar servicios para un paciente."/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmBuyActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="itmGenerateBill">
               <Properties>

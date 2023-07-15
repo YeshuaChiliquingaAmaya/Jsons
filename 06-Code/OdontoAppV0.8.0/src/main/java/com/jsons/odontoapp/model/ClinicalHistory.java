@@ -20,7 +20,20 @@ public class ClinicalHistory {
     private Date treatmentDateStart;
     private Date treatmentEndDate;
 
-     
+        @Override
+    public String toString() {
+        return name + "\n" + 
+        "id: " + id + "\n" + 
+        age + "\n" + 
+        weight + "\n" + 
+        height + "\n" + 
+        diseaseSymptoms + "\n" + 
+        cellphone + "\n" + 
+        systemicDiseases + "\n" + 
+        patientTreatment + "\n" + 
+        "Fecha de Inicio de Tratamiento: " + treatmentDateStart.toString() + "\n" + 
+        "Fecha de Finalización de Tratamiento: " + treatmentEndDate.toString();
+    }
     
     /**
      * @return the id

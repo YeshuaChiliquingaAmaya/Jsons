@@ -68,6 +68,11 @@ public class OdontoApp extends javax.swing.JFrame {
 
         itmBuy.setText("Comprar");
         itmBuy.setToolTipText("Presiona para comprar servicios para un paciente.");
+        itmBuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itmBuyActionPerformed(evt);
+            }
+        });
         mnuServices.add(itmBuy);
 
         itmGenerateBill.setText("Generar Factura");
@@ -119,6 +124,12 @@ public class OdontoApp extends javax.swing.JFrame {
         frmPatients.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmManagementActionPerformed
+
+    private void itmBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itmBuyActionPerformed
+        FrmChoosePatient frmChoosePatient = new FrmChoosePatient();
+        frmChoosePatient.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_itmBuyActionPerformed
 
     /**
      * @param args the command line arguments
