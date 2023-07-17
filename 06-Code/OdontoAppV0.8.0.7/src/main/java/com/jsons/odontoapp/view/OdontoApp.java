@@ -85,6 +85,11 @@ public class OdontoApp extends javax.swing.JFrame {
 
         jMenuItem1.setText("Gestión");
         jMenuItem1.setToolTipText("Presiona para hacer acciones con las citas de un paciente.");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         mnuAppointments.add(jMenuItem1);
 
         mnubar.add(mnuAppointments);
@@ -130,6 +135,12 @@ public class OdontoApp extends javax.swing.JFrame {
         frmChoosePatient.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_itmBuyActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        FrmBeforeAppointment appointmets = new FrmBeforeAppointment();
+        appointmets.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments

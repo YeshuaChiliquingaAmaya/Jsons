@@ -61,6 +61,9 @@
                 <Property name="text" type="java.lang.String" value="Gesti&#xf3;n"/>
                 <Property name="toolTipText" type="java.lang.String" value="Presiona para hacer acciones con las citas de un paciente."/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem1ActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

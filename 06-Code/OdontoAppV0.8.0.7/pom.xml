@@ -34,4 +34,5 @@
             <version>1.4</version>
         </dependency>
     </dependencies>
+    <name>OdontoAppV8.0.7</name>
 </project>
