@@ -2,9 +2,18 @@ package com.jsons.odontoapp.view;
 
 import com.jsons.odontoapp.model.Patient;
 import com.jsons.odontoapp.model.Service;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -281,9 +290,35 @@ public class Bill extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGoBackActionPerformed
 
     private void btnPrintBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrintBillActionPerformed
-        //
+         PrinterJob printerJob = PrinterJob.getPrinterJob();
+        printerJob.setPrintable(new Printable() {
+            @Override
+            public int print(Graphics graphics, PageFormat pageFormat, int pageIndex) throws PrinterException {
+                if (pageIndex > 0) {
+                    return NO_SUCH_PAGE;
+                }
+
+                Graphics2D g2d = (Graphics2D) graphics;
+                g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+
+                jPanel1.printAll(graphics);
+
+                return PAGE_EXISTS;
+            }
+        });
+
+        if (printerJob.printDialog()) {
+            try {
+                printerJob.print();
+            } catch (PrinterException ex) {
+                JOptionPane.showMessageDialog(rootPane, "Error al imprimir el documento");
+            }
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "La impresión ha sido cancelada");
+        }
     }//GEN-LAST:event_btnPrintBillActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */

@@ -32,6 +32,7 @@ public class OdontoApp extends javax.swing.JFrame {
         itmManagement = new javax.swing.JMenuItem();
         mnuServices = new javax.swing.JMenu();
         itmBuy = new javax.swing.JMenuItem();
+        itmGenerateBill = new javax.swing.JMenuItem();
         mnuAppointments = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -73,6 +74,10 @@ public class OdontoApp extends javax.swing.JFrame {
             }
         });
         mnuServices.add(itmBuy);
+
+        itmGenerateBill.setText("Generar Factura");
+        itmGenerateBill.setToolTipText("Presiona para generar la factura de un paciente.");
+        mnuServices.add(itmGenerateBill);
 
         mnubar.add(mnuServices);
 
@@ -163,6 +168,7 @@ public class OdontoApp extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem itmBuy;
+    private javax.swing.JMenuItem itmGenerateBill;
     private javax.swing.JMenuItem itmManagement;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu3;

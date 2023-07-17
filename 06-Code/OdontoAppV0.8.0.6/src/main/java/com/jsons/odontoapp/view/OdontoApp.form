@@ -43,6 +43,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="itmBuyActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="itmGenerateBill">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Generar Factura"/>
+                <Property name="toolTipText" type="java.lang.String" value="Presiona para generar la factura de un paciente."/>
+              </Properties>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="mnuAppointments">
