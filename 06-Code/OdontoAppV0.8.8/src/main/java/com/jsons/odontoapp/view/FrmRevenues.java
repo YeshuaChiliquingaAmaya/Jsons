@@ -6,7 +6,9 @@ package com.jsons.odontoapp.view;
 
 import com.jsons.odontoapp.controller.DentistController;
 import com.jsons.odontoapp.controller.PatientController;
+import com.jsons.odontoapp.controller.ServiceController;
 import com.jsons.odontoapp.model.Appointment;
+import com.jsons.odontoapp.model.Bill;
 import com.jsons.odontoapp.model.Dentist;
 import com.jsons.odontoapp.model.Patient;
 import java.text.ParseException;
@@ -53,7 +55,6 @@ public class FrmRevenues extends javax.swing.JFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jCheckBox2 = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,6 +62,7 @@ public class FrmRevenues extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
         jLabel1.setText("Calculadora de Ganancia");
 
+        jTextPane1.setEditable(false);
         jScrollPane1.setViewportView(jTextPane1);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -119,8 +121,6 @@ public class FrmRevenues extends javax.swing.JFrame {
 
         jLabel2.setText("Ganancias al Día");
 
-        jCheckBox2.setText("Mostrar pérdidas");
-
         jButton2.setText("<-- Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -144,20 +144,16 @@ public class FrmRevenues extends javax.swing.JFrame {
                         .addGap(65, 65, 65)
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
+                        .addGap(52, 52, 52)
                         .addComponent(jLabel2)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(32, 32, 32))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jButton1)
-                            .addGap(66, 66, 66)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jCheckBox2)
-                        .addGap(91, 91, 91))))
+                        .addComponent(jButton1)
+                        .addGap(66, 66, 66))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
@@ -183,9 +179,7 @@ public class FrmRevenues extends javax.swing.JFrame {
                             .addComponent(jButton2))
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCheckBox2)
-                        .addGap(21, 21, 21)
+                        .addGap(55, 55, 55)
                         .addComponent(jButton1)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
@@ -194,7 +188,9 @@ public class FrmRevenues extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        OdontoApp odontoapp = new OdontoApp();
+        odontoapp.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -211,40 +207,132 @@ public class FrmRevenues extends javax.swing.JFrame {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        boolean isChecked = jCheckBox1.isSelected();
+        if (isChecked == false) {
+            CalculateforDay();
+        } else {
+            CalculateforMonth();
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+    
+    public void CalculateforDay(){
         // Obtener la fecha seleccionada en el JCalendar2
-        Date selectedDate = jCalendar2.getDate();
+        Date selectedDate = jCalendar1.getDate();
 
-        // Formatear la fecha al formato "MMM dd, yyyy, 12:00:00 AM"
-        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy, hh:mm:ss a");
+        // Formatear la fecha al formato "MMM dd, yyyy, hh:mm:ss a"
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy");
         String selectedDateString = dateFormat.format(selectedDate);
+
+        // Obtener la instancia del dentista desde la base de datos
+        Dentist dentist;
+        try {
+            dentist = DentistController.get();
+        } catch (ParseException ex) {
+            // Manejar el error si ocurre una excepción al obtener el dentista
+            ex.printStackTrace();
+            return;
+        }
 
         // Calcular las ganancias del día seleccionado
         double totalGanancias = 0;
-        for (Patient patient : PatientController.show()) {
-            for (Appointment appointment : patient.getAppointments()) {
-                String appointmentDateString = dateFormat.format(appointment.getDate());
-                if (appointmentDateString.equals(selectedDateString)) {
-                    String serviceInfo = appointment.getService();
-                    int valueIndex = serviceInfo.lastIndexOf(":");
-                    if (valueIndex != -1) {
-                        try {
-                            double value = Double.parseDouble(serviceInfo.substring(valueIndex + 1).trim());
-                            totalGanancias += value;
-                        } catch (NumberFormatException e) {
-                            // Manejar errores si el formato de los datos no es correcto
-                            e.printStackTrace();
-                        }
-                    }
-                }
+        for (Bill bill : dentist.getFactures()) {
+            String billDateString = dateFormat.format(bill.getDate());
+            // Formatear la fecha sin incluir la hora, minutos y segundos
+            String formattedBillDate = billDateString.substring(0, 12);
+            String formattedSelectedDate = selectedDateString.substring(0, 12);
+
+            if (formattedBillDate.equals(formattedSelectedDate)) {
+                totalGanancias += bill.getValue();
             }
         }
 
         // Mostrar la factura de ganancias en el JTextPane1
-        String factura = "Factura de ganancias del día " + selectedDateString + ":\n";
-        factura += "Total ganancias: $" + totalGanancias;
+        String factura = "<html><body>";
+        factura += "<h1 style='text-align: center;'>Factura de ganancias del día " + selectedDateString + "</h1>";
+        factura += "<hr>";
+        factura += "<table style='width:100%; font-size:14px;'>";
+        factura += "<tr><th>Servicio</th><th>Monto</th></tr>";
+
+        // Aquí debes agregar cada servicio y su valor a la factura
+        for (Bill bill : dentist.getFactures()) {
+            String billDateString = dateFormat.format(bill.getDate());
+            if (billDateString.equals(selectedDateString)) {
+                factura += "<tr><td>" + "Servicio" + "</td><td>$" + bill.getValue() + "</td></tr>";
+                // Puedes ajustar el texto "Servicio" para que muestre la información adecuada
+            }
+        }
+
+        factura += "</table>";
+        factura += "<hr>";
+        factura += "<p style='text-align: right; font-size:16px;'>Total ganancias: $" + totalGanancias + "</p>";
+        factura += "</body></html>";
+
+        jTextPane1.setContentType("text/html");
         jTextPane1.setText(factura);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
+    
+    public void CalculateforMonth() {
+        // Obtener la fecha de inicio seleccionada en el JCalendar2
+        Date startDate = jCalendar2.getDate();
+
+        // Obtener la fecha de fin seleccionada en el JCalendar3
+        Date endDate = jCalendar3.getDate();
+
+        // Formatear las fechas al formato "MMM dd, yyyy"
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy");
+        String startDateString = dateFormat.format(startDate);
+        String endDateString = dateFormat.format(endDate);
+
+        // Obtener la instancia del dentista desde la base de datos
+        Dentist dentist;
+        try {
+            dentist = DentistController.get();
+        } catch (ParseException ex) {
+            // Manejar el error si ocurre una excepción al obtener el dentista
+            ex.printStackTrace();
+            return;
+        }
+
+        // Calcular las ganancias para el rango de fechas seleccionado
+        double totalGanancias = 0;
+        for (Bill bill : dentist.getFactures()) {
+            Date billDate = bill.getDate();
+            // Formatear la fecha sin incluir la hora, minutos y segundos
+            String formattedBillDate = dateFormat.format(billDate);
+
+            // Verificar si la fecha de la factura está dentro del rango seleccionado
+            if (billDate.compareTo(startDate) >= 0 && billDate.compareTo(endDate) <= 0) {
+                totalGanancias += bill.getValue();
+            }
+        }
+
+        // Mostrar la factura de ganancias en el JTextPane1
+        String factura = "<html><body>";
+        factura += "<h1 style='text-align: center;'>Factura de ganancias del " + startDateString + " al " + endDateString + "</h1>";
+        factura += "<hr>";
+        factura += "<table style='width:100%; font-size:14px;'>";
+        factura += "<tr><th>Servicio</th><th>Monto</th></tr>";
+
+        // Aquí debes agregar cada servicio y su valor a la factura
+        for (Bill bill : dentist.getFactures()) {
+            String billDateString = dateFormat.format(bill.getDate());
+            // Formatear la fecha sin incluir la hora, minutos y segundos
+            String formattedBillDate = billDateString.substring(0, 12);
+
+            if (formattedBillDate.compareTo(startDateString) >= 0 && formattedBillDate.compareTo(endDateString) <= 0) {
+                factura += "<tr><td>" + "Servicio" + "</td><td>$" + bill.getValue() + "</td></tr>";
+                // Puedes ajustar el texto "Servicio" para que muestre la información adecuada
+            }
+        }
+
+        factura += "</table>";
+        factura += "<hr>";
+        factura += "<p style='text-align: right; font-size:16px;'>Total ganancias: $" + totalGanancias + "</p>";
+        factura += "</body></html>";
+
+        jTextPane1.setContentType("text/html");
+        jTextPane1.setText(factura);
+    }
 
     /**
      * @param args the command line arguments
@@ -288,7 +376,6 @@ public class FrmRevenues extends javax.swing.JFrame {
     private com.toedter.calendar.JCalendar jCalendar2;
     private com.toedter.calendar.JCalendar jCalendar3;
     private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

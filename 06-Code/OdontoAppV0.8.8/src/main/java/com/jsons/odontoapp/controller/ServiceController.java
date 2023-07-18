@@ -8,10 +8,13 @@ import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoException;
 import com.mongodb.ServerApi;
 import com.mongodb.ServerApiVersion;
+import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.util.ArrayList;
+import java.util.List;
 import org.bson.Document;
 
 /**
@@ -41,10 +44,11 @@ public class ServiceController {
                 Document document = Document.parse(patientData);
                 Document newDocument = new Document("$set", document);
 
-                database.getCollection("Patients").updateOne(filter, newDocument);
+                database.getCollection("Dentist").updateOne(filter, newDocument);
             } catch (MongoException e) {
                 e.printStackTrace();
             }
         }
     }
+   
 }
