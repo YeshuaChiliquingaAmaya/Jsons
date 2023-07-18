@@ -728,11 +728,11 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
         String id = txtId.getText().trim(); // Reemplaza "txtId" por el nombre de tu JTextField o JTextArea
 
         // Verificar si el ID ya existe en la base de datos
-        boolean idExiste = control.verificarIdExistente(id);
+        boolean idExiste = control.verifyrIdExist(id);
 
         // Mostrar un JOptionPane con el resultado de la verificación
         if (idExiste) {
-            JOptionPane.showMessageDialog(this, "El ID ya existe en la base de datos.", "Verificación de ID", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "El ID ya existe en la base de datos.", "Verificación de ID", JOptionPane.WARNING_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(this, "El ID no existe en la base de datos.", "Verificación de ID", JOptionPane.INFORMATION_MESSAGE);
         }

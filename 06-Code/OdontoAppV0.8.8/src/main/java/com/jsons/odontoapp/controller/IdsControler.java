@@ -34,7 +34,7 @@ public class IdsControler {
         System.out.println("ingreso a la base de datos");
     }
 
-    public boolean verificarIdExistente(String id) {
+    public boolean verifyrIdExist(String id) {
         BasicDBObject query = new BasicDBObject();
         query.put("clinicalHistory.id", Integer.parseInt(id));
 
