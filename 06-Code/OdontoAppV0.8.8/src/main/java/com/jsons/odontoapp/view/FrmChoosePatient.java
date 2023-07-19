@@ -7,6 +7,8 @@ package com.jsons.odontoapp.view;
 import com.jsons.odontoapp.controller.PatientController;
 import com.jsons.odontoapp.model.Patient;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
 
@@ -52,6 +54,10 @@ public class FrmChoosePatient extends javax.swing.JFrame {
      */
     public FrmChoosePatient() {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
+        
         fillPatients();
         setModel();
     }
@@ -229,8 +235,8 @@ public class FrmChoosePatient extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        FrmPatients frmPatients = new FrmPatients();
-        frmPatients.setVisible(true);
+        FrmOdontoApp odontoapp = new FrmOdontoApp();
+        odontoapp.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

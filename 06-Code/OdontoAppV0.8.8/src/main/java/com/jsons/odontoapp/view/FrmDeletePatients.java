@@ -7,6 +7,8 @@ package com.jsons.odontoapp.view;
 import com.jsons.odontoapp.controller.PatientController;
 import com.jsons.odontoapp.model.Patient;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -53,6 +55,10 @@ public class FrmDeletePatients extends javax.swing.JFrame {
      */
     public FrmDeletePatients() {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
+        
         fillPatients();
         setModel();
     }

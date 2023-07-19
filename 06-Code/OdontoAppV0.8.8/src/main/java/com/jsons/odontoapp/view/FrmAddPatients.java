@@ -13,6 +13,8 @@ import com.jsons.odontoapp.model.Patient;
 import com.jsons.odontoapp.model.Service;
 import com.mongodb.client.MongoCollection;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -36,6 +38,9 @@ public class FrmAddPatients extends javax.swing.JFrame {
     public FrmAddPatients() {
         control = new IdsControler();
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**

@@ -11,6 +11,8 @@ import com.jsons.odontoapp.model.ClinicalHistory;
 import com.jsons.odontoapp.model.Patient;
 import com.jsons.odontoapp.model.Service;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
@@ -33,6 +35,9 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
      */
     public FrmPatientToEdit(Patient patient) {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
         
         control = new IdsControler();
         int id = patient.getClinicalHistory().getId();

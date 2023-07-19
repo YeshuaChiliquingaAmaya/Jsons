@@ -11,6 +11,8 @@ import com.jsons.odontoapp.model.Appointment;
 import com.jsons.odontoapp.model.Bill;
 import com.jsons.odontoapp.model.Dentist;
 import com.jsons.odontoapp.model.Patient;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,6 +30,10 @@ public class FrmRevenues extends javax.swing.JFrame {
      */
     public FrmRevenues() {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
+        
         try {
             this.dentist = DentistController.get();
         } catch (ParseException ex) {
@@ -190,7 +196,7 @@ public class FrmRevenues extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        OdontoApp odontoapp = new OdontoApp();
+        FrmOdontoApp odontoapp = new FrmOdontoApp();
         odontoapp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed

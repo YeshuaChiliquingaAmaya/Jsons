@@ -18,6 +18,8 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -66,6 +68,10 @@ public class FrmBeforeAppointment extends javax.swing.JFrame {
      */
     public FrmBeforeAppointment() {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
+        
         fillPatients();
         setModel();
     }
@@ -231,7 +237,7 @@ public class FrmBeforeAppointment extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
-        OdontoApp frmPatients = new OdontoApp();
+        FrmOdontoApp frmPatients = new FrmOdontoApp();
         frmPatients.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 

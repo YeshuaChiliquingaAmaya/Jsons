@@ -306,7 +306,7 @@ public class FrmBill extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
-        OdontoApp odonto = new OdontoApp();
+        FrmOdontoApp odonto = new FrmOdontoApp();
         odonto.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnGoBackActionPerformed

@@ -5,6 +5,8 @@
 package com.jsons.odontoapp.view;
 
 import com.jsons.odontoapp.controller.LoginController;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import org.bson.Document;
@@ -13,12 +15,15 @@ import org.bson.Document;
  *
  * @author yeshualinux
  */
-public class Login extends javax.swing.JFrame {
+public class FrmLogin extends javax.swing.JFrame {
     /**
      * Creates new form Login
      */
-    public Login() {
+    public FrmLogin() {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width/2-getWidth()/2, size.height/2 - getHeight()/2);
     }
 
     /**
@@ -40,6 +45,8 @@ public class Login extends javax.swing.JFrame {
         cbxViewPassword = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setText("Inicio de sesión");
 
@@ -145,7 +152,7 @@ public class Login extends javax.swing.JFrame {
         boolean validPassword = login.VerificatePassword();
         
         if (validUseaname && validPassword){
-            OdontoApp app = new OdontoApp();
+            FrmOdontoApp app = new FrmOdontoApp();
             JOptionPane.showMessageDialog(rootPane, "Bienvenida/o al sistema");
             app.setVisible(true);
             this.setVisible(false);
@@ -179,20 +186,21 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new FrmLogin().setVisible(true);
             }
         });
     }

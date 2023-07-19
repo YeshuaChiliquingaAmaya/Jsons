@@ -10,6 +10,8 @@ import com.jsons.odontoapp.model.ClinicalHistory;
 import com.jsons.odontoapp.model.Patient;
 import com.jsons.odontoapp.model.Service;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -103,6 +105,10 @@ public class FrmBuyServices extends javax.swing.JFrame {
      */
     public FrmBuyServices(Patient patient) {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
+        
         setTableServicesModel();
         ClinicalHistory clinicalHistory = new ClinicalHistory();
         clinicalHistory = patient.getClinicalHistory();

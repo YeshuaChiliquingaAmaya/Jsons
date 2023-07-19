@@ -4,6 +4,9 @@
  */
 package com.jsons.odontoapp.view;
 
+import java.awt.Dimension;
+import java.awt.Toolkit;
+
 /**
  *
  * @author Ruben Benavides, Jsons, DCCO-ESPE
@@ -15,6 +18,9 @@ public class FrmPatients extends javax.swing.JFrame {
      */
     public FrmPatients() {
         initComponents();
+        Toolkit toolkit = getToolkit();
+        Dimension size = toolkit.getScreenSize();
+        setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
     }
 
     /**
@@ -115,7 +121,7 @@ public class FrmPatients extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGoBackActionPerformed
-        OdontoApp odontoapp = new OdontoApp();
+        FrmOdontoApp odontoapp = new FrmOdontoApp();
         odontoapp.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnGoBackActionPerformed
