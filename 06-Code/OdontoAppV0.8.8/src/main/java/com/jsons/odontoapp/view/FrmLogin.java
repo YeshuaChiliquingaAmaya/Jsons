@@ -17,7 +17,7 @@ import org.bson.Document;
  * @author yeshualinux
  */
 public class FrmLogin extends javax.swing.JFrame {
-    ImageIcon imageLogo = new ImageIcon("Logo.jpeg");
+    
     /**
      * Creates new form Login
      */
