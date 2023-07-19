@@ -32,6 +32,7 @@ public class FrmOdontoApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         mnubar = new javax.swing.JMenuBar();
         mnuPatients = new javax.swing.JMenu();
@@ -48,16 +49,36 @@ public class FrmOdontoApp extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 0, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        jPanel1.setBackground(new java.awt.Color(227, 227, 254));
+
         jLabel1.setFont(new java.awt.Font("Constantia", 0, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
         jLabel1.setText("OdontoApp");
 
-        mnubar.setBackground(java.awt.Color.blue);
-        mnubar.setForeground(java.awt.Color.red);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(138, 138, 138)
+                .addComponent(jLabel1)
+                .addContainerGap(138, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(111, 111, 111)
+                .addComponent(jLabel1)
+                .addContainerGap(137, Short.MAX_VALUE))
+        );
+
+        mnubar.setBackground(new java.awt.Color(102, 204, 255));
+        mnubar.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
 
         mnuPatients.setText("Pacientes");
         mnuPatients.setToolTipText("");
+        mnuPatients.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
 
+        itmManagement.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         itmManagement.setText("Gestión");
         itmManagement.setToolTipText("Presiona para hacer acciones con los pacientes.");
         itmManagement.addActionListener(new java.awt.event.ActionListener() {
@@ -70,7 +91,9 @@ public class FrmOdontoApp extends javax.swing.JFrame {
         mnubar.add(mnuPatients);
 
         mnuServices.setText("Servicios");
+        mnuServices.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
 
+        itmBuy.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         itmBuy.setText("Comprar");
         itmBuy.setToolTipText("Presiona para comprar servicios para un paciente.");
         itmBuy.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +106,9 @@ public class FrmOdontoApp extends javax.swing.JFrame {
         mnubar.add(mnuServices);
 
         mnuAppointments.setText("Citas");
+        mnuAppointments.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
 
+        jMenuItem1.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jMenuItem1.setText("Gestión");
         jMenuItem1.setToolTipText("Presiona para hacer acciones con las citas de un paciente.");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -96,7 +121,9 @@ public class FrmOdontoApp extends javax.swing.JFrame {
         mnubar.add(mnuAppointments);
 
         jMenu3.setText("Ganancias");
+        jMenu3.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
 
+        jMenuItem2.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jMenuItem2.setText("Calcular Ganancias");
         jMenuItem2.setToolTipText("Presiona para calcular las ganancias diarias.");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -114,17 +141,11 @@ public class FrmOdontoApp extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addComponent(jLabel1)
-                .addContainerGap(139, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
-                .addComponent(jLabel1)
-                .addContainerGap(133, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -197,6 +218,7 @@ public class FrmOdontoApp extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenu mnuAppointments;
     private javax.swing.JMenu mnuPatients;
     private javax.swing.JMenu mnuServices;

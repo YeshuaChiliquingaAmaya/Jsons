@@ -4,27 +4,16 @@
  */
 package com.jsons.odontoapp.view;
 
-import com.google.gson.Gson;
 import com.jsons.odontoapp.controller.PatientController;
 import com.jsons.odontoapp.model.Appointment;
 import com.jsons.odontoapp.model.Patient;
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
-import com.mongodb.MongoException;
-import com.mongodb.ServerApi;
-import com.mongodb.ServerApiVersion;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import org.bson.Document;
-import org.bson.types.ObjectId;
 
 /**
  *

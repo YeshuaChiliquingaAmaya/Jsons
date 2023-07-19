@@ -4,7 +4,6 @@
  */
 package com.jsons.odontoapp.view;
 
-import com.jsons.odontoapp.controller.AppointmentController;
 import com.jsons.odontoapp.controller.PatientController;
 import com.jsons.odontoapp.model.Appointment;
 import com.jsons.odontoapp.model.Patient;
