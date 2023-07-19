@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="1" name="com.jsons.odontoapp.view.FrmBuyServicesTest" time="0.304" errors="0" skipped="0">
+<testsuite tests="1" failures="1" name="com.jsons.odontoapp.view.FrmBuyServicesTest" time="0.341" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="20.0.1+9-29"/>
@@ -62,7 +62,7 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.jsons.odontoapp.view.FrmBuyServicesTest" name="com.jsons.odontoapp.view.FrmBuyServicesTest.testMain" time="0.304">
+  <testcase classname="com.jsons.odontoapp.view.FrmBuyServicesTest" name="com.jsons.odontoapp.view.FrmBuyServicesTest.testMain" time="0.341">
     <failure message="The test case is a prototype." type="org.opentest4j.AssertionFailedError">org.opentest4j.AssertionFailedError: The test case is a prototype.
 	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
 	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
