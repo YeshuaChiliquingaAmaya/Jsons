@@ -196,31 +196,23 @@ public class FrmAppointments extends javax.swing.JFrame {
     private void btnAgendActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgendActionPerformed
        
         readAppointmentDay();
-        appointment.setHour(jComboBox2.getSelectedItem().toString()); // Obtén la hora seleccionada del JComboBox
+        appointment.setHour(jComboBox2.getSelectedItem().toString()); 
 
-        // Obtén el servicio seleccionado del JComboBox
         String selectedService = cbxServices.getSelectedItem().toString();
         appointment.setService(selectedService);
 
-        // Agrega la cita a la lista appointments
         appointments.add(appointment);
 
-        // Asigna la lista appointments al paciente
         patient.setAppointments(appointments);
 
-        // Agrega el paciente a la base de datos usando el controlador PatientController
         PatientController.update(patient.getClinicalHistory().getId(), patient);
 
-        // Puedes mostrar un mensaje de confirmación o realizar otras acciones después de guardar la cita
         JOptionPane.showMessageDialog(this, "Cita agendada exitosamente");
         
-        // Limpia el calendario
         JCAppointmetDay.setDate(null);
-        
-        // Llama al método para mostrar los detalles de la cita recién agendada
+
         showAppointmentDetails(appointment);
 
-        // Limpia el calendario
         JCAppointmetDay.setDate(null);
     }//GEN-LAST:event_btnAgendActionPerformed
     
@@ -241,7 +233,6 @@ public class FrmAppointments extends javax.swing.JFrame {
     }
     
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
         FrmBeforeAppointment back = new FrmBeforeAppointment();
         back.setVisible(true);
         this.setVisible(false);

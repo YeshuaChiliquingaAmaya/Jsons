@@ -5,42 +5,76 @@
 package com.jsons.odontoapp.view;
 
 import com.jsons.odontoapp.controller.IdsControler;
-import com.jsons.odontoapp.controller.LoginController;
 import com.jsons.odontoapp.controller.PatientController;
 import com.jsons.odontoapp.model.Appointment;
 import com.jsons.odontoapp.model.ClinicalHistory;
 import com.jsons.odontoapp.model.Patient;
 import com.jsons.odontoapp.model.Service;
-import com.mongodb.client.MongoCollection;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
-import org.bson.Document;
 
 /**
  *
  * @author Ruben Benavides, Jsons, DCCO-ESPE
  */
-public class FrmAddPatients extends javax.swing.JFrame {
-
-    Patient patient = new Patient();
+public class FrmPatientToEdit extends javax.swing.JFrame {
+    
+    int patientId;
+    Patient newPatient = new Patient();
     ClinicalHistory clinicalHistory = new ClinicalHistory();
     ArrayList<Appointment> appointments = new ArrayList<Appointment>();
     ArrayList<Service> acquiredServices = new ArrayList<Service>();
     private IdsControler control;
     
     /**
-     * Creates new form FrmAddPatients
+     * Creates new form FrmPatientToEdit
      */
-    public FrmAddPatients() {
-        control = new IdsControler();
+    public FrmPatientToEdit(Patient patient) {
         initComponents();
         Toolkit toolkit = getToolkit();
         Dimension size = toolkit.getScreenSize();
         setLocation(size.width / 2 - getWidth() / 2, size.height / 2 - getHeight() / 2);
+        
+        control = new IdsControler();
+        int id = patient.getClinicalHistory().getId();
+        String idString = String.valueOf(id);
+        txtId.setText(idString);
+        
+        txtName.setText(patient.getClinicalHistory().getName());
+        
+        int age = patient.getClinicalHistory().getAge();
+        String ageString = String.valueOf(age);
+        txtAge.setText(ageString);
+        
+        double weight = patient.getClinicalHistory().getWeight();
+        String weightString = String.valueOf(weight);
+        txtWeight.setText(weightString);
+        
+        double height = patient.getClinicalHistory().getHeight();
+        String heightString = String.valueOf(height);
+        txtHeight.setText(heightString);
+        
+        txtDiseaseSymptoms.setText(patient.getClinicalHistory().getDiseaseSymptoms());
+        
+        txtCellPhoneNumber.setText(patient.getClinicalHistory().getCellphone());
+        
+        txtSystemicDiseases.setText(patient.getClinicalHistory().getSystemicDiseases());
+        
+        txtPatientTreatment.setText(patient.getClinicalHistory().getPatientTreatment());
+        
+        cdarStarDate.setDate(patient.getClinicalHistory().getTreatmentDateStart());
+        
+        cdarEndDate.setDate(patient.getClinicalHistory().getTreatmentEndDate());
+        
+        patientId = patient.getClinicalHistory().getId();
+
+        clinicalHistory = patient.getClinicalHistory();
+        acquiredServices = patient.getAcquiredServices();
+        appointments = patient.getAppointments();
     }
 
     /**
@@ -52,7 +86,9 @@ public class FrmAddPatients extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel13 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        btGoBack = new javax.swing.JButton();
+        btnUpdatePatient = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblAgeWarning = new javax.swing.JLabel();
         lblWeightWarning = new javax.swing.JLabel();
@@ -84,11 +120,43 @@ public class FrmAddPatients extends javax.swing.JFrame {
         lblNameWarning = new javax.swing.JLabel();
         lblIdWarning = new javax.swing.JLabel();
         btnDupply = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        btnAddPatient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setForeground(new java.awt.Color(255, 213, 172));
+
+        btGoBack.setText("Regresar");
+        btGoBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGoBackActionPerformed(evt);
+            }
+        });
+
+        btnUpdatePatient.setText("Actualizar");
+        btnUpdatePatient.setEnabled(false);
+        btnUpdatePatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdatePatientActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(496, Short.MAX_VALUE)
+                .addComponent(btnUpdatePatient)
+                .addGap(391, 391, 391)
+                .addComponent(btGoBack))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btGoBack)
+                    .addComponent(btnUpdatePatient))
+                .addContainerGap())
+        );
 
         cdarEndDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -132,6 +200,11 @@ public class FrmAddPatients extends javax.swing.JFrame {
                 txtIdActionPerformed(evt);
             }
         });
+        txtId.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txtIdPropertyChange(evt);
+            }
+        });
         txtId.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtIdKeyReleased(evt);
@@ -162,6 +235,11 @@ public class FrmAddPatients extends javax.swing.JFrame {
             }
         });
 
+        txtAge.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txtAgePropertyChange(evt);
+            }
+        });
         txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAgeKeyReleased(evt);
@@ -255,6 +333,16 @@ public class FrmAddPatients extends javax.swing.JFrame {
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNameWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblIdWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDupply))
                     .addComponent(txtPatientTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -276,18 +364,8 @@ public class FrmAddPatients extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(txtCellPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblIdWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnDupply))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNameWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(lblContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(407, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -297,8 +375,9 @@ public class FrmAddPatients extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel6)
                         .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblIdWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnDupply))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(btnDupply)
+                        .addComponent(lblIdWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNameWarning, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -334,11 +413,11 @@ public class FrmAddPatients extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(txtPatientTreatment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(txtSystemicDiseases, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -350,86 +429,56 @@ public class FrmAddPatients extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
                     .addComponent(cdarEndDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(167, 167, 167))
-        );
-
-        btnAddPatient.setText("Añadir");
-        btnAddPatient.setEnabled(false);
-        btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddPatientActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(483, Short.MAX_VALUE)
-                .addComponent(btnAddPatient)
-                .addGap(467, 467, 467))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddPatient)
-                .addContainerGap())
+                .addGap(170, 170, 170))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(669, 669, 669)
-                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 427, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 43, Short.MAX_VALUE)))
         );
-
-        jPanel1.getAccessibleContext().setAccessibleParent(jPanel1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+    private void btGoBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGoBackActionPerformed
+        FrmEditPatients frmEditPatients = new FrmEditPatients();
+        frmEditPatients.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btGoBackActionPerformed
 
-    }//GEN-LAST:event_txtNameActionPerformed
-
-    private void btnAddPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPatientActionPerformed
+    private void btnUpdatePatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdatePatientActionPerformed
         readTreatmentStartDate();
         readTreatmentEndDate();
-        patient.setClinicalHistory(clinicalHistory);
-        patient.setAppointments(appointments);
-        patient.setAcquiredServices(acquiredServices);
-        int option = JOptionPane.showConfirmDialog(this,"Está segura de que desea añadir a: \n" + patient.OnlyPatientsToString(), "saving warning",1);
+        newPatient.setClinicalHistory(clinicalHistory);
+        newPatient.setAcquiredServices(acquiredServices);
+        newPatient.setAppointments(appointments);
+        int option = JOptionPane.showConfirmDialog(this,"Está segura de que desea actualizar con los datos: \n" + newPatient.OnlyPatientsToString(), "saving warning",1);
         if(option == 0){
             JOptionPane.showMessageDialog(rootPane, "saved, saving..");
-            PatientController.add(patient);
-            clearFields();
+            PatientController.update(patientId, newPatient);
         }
         if(option == 1){
             JOptionPane.showMessageDialog(rootPane, "not saved");
-            clearFields();
         }
         if(option == 2){
             JOptionPane.showMessageDialog(rootPane, "canceled");
-            clearFields();
         }
-    }//GEN-LAST:event_btnAddPatientActionPerformed
-    
+    }//GEN-LAST:event_btnUpdatePatientActionPerformed
+
     public void verifyFilledFields(){
         if(txtId.getText().isEmpty() ||
            txtName.getText().isEmpty() ||
@@ -447,15 +496,15 @@ public class FrmAddPatients extends javax.swing.JFrame {
            txtHeight.getText().matches("\\d*\\.?\\d*") == false ||
            txtHeight.getText().matches("\\d*\\.?\\d*") == false ||
            txtCellPhoneNumber.getText().matches("[0-9-\\s()]*") == false){
-            btnAddPatient.setEnabled(false);
+            btnUpdatePatient.setEnabled(false);
         }else{
             if(Integer.parseInt(txtId.getText()) <= 0 ||
                Integer.parseInt(txtAge.getText()) <= 0 ||
                Double.parseDouble(txtWeight.getText()) <= 0 || 
                Double.parseDouble(txtHeight.getText()) <= 0){
-                btnAddPatient.setEnabled(false);
+                btnUpdatePatient.setEnabled(false);
             }else{
-                btnAddPatient.setEnabled(true);
+                btnUpdatePatient.setEnabled(true);
             }
         }
     }
@@ -470,51 +519,29 @@ public class FrmAddPatients extends javax.swing.JFrame {
         clinicalHistory.setTreatmentEndDate(treatmentEndDate);
     }
     
-    private void clearFields() {
-        txtId.setText("");
-        txtName.setText("");
-        txtAge.setText("");
-        txtWeight.setText("");
-        txtHeight.setText("");
-        txtDiseaseSymptoms.setText("");
-        txtPatientTreatment.setText("");
-        txtCellPhoneNumber.setText("");
-        txtSystemicDiseases.setText("");
-        btnAddPatient.setEnabled(false);
-    }
     
-    private void txtWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtWeightActionPerformed
-
-    private void txtNameComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_txtNameComponentAdded
-
-    }//GEN-LAST:event_txtNameComponentAdded
-
-    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
-        
-    }//GEN-LAST:event_txtNameKeyPressed
-
-    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
-
-    }//GEN-LAST:event_txtNameKeyTyped
-
-    private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
-        String name;
-        if(txtName.getText().matches("[A-Za-zá-ú ]*")){
-            lblNameWarning.setVisible(false);
-            name = txtName.getText();
-            clinicalHistory.setName(name);
-        }else{
-            lblNameWarning.setText("Ingrese solo nombres validos.");
-            lblNameWarning.setForeground(Color.red);
-            lblNameWarning.setVisible(true);
-            btnAddPatient.setEnabled(false);
-        }
-        txtName.getParent().revalidate();
-        txtName.getParent().repaint();
+    private void cdarEndDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cdarEndDatePropertyChange
         verifyFilledFields();
-    }//GEN-LAST:event_txtNameKeyReleased
+    }//GEN-LAST:event_cdarEndDatePropertyChange
+
+    private void lblContactNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblContactNumberKeyReleased
+
+    }//GEN-LAST:event_lblContactNumberKeyReleased
+
+    private void txtPatientTreatmentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientTreatmentKeyReleased
+        String patientTreatment;
+        patientTreatment = txtPatientTreatment.getText();
+        clinicalHistory.setPatientTreatment(patientTreatment);
+        verifyFilledFields();
+    }//GEN-LAST:event_txtPatientTreatmentKeyReleased
+
+    private void cdarStarDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cdarStarDatePropertyChange
+        verifyFilledFields();
+    }//GEN-LAST:event_cdarStarDatePropertyChange
+
+    private void txtIdInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtIdInputMethodTextChanged
+
+    }//GEN-LAST:event_txtIdInputMethodTextChanged
 
     private void txtIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIdActionPerformed
 
@@ -526,24 +553,56 @@ public class FrmAddPatients extends javax.swing.JFrame {
             id = Integer.parseInt(txtId.getText()) ;
             if (id > 0) {
                 lblIdWarning.setVisible(false);
-                //Validation of the id with the database
                 clinicalHistory.setId(id);
             } else {
                 lblIdWarning.setText("Ingrese solo numeros positivos");
                 lblIdWarning.setForeground(Color.red);
                 lblIdWarning.setVisible(true);
-                btnAddPatient.setEnabled(false);
+                btnUpdatePatient.setEnabled(false);
             }
         }else{
             lblIdWarning.setText("Ingrese solo numeros enteros");
             lblIdWarning.setForeground(Color.red);
             lblIdWarning.setVisible(true);
-            btnAddPatient.setEnabled(false);
+            btnUpdatePatient.setEnabled(false);
         }
         txtId.getParent().revalidate();
         txtId.getParent().repaint();
         verifyFilledFields();
     }//GEN-LAST:event_txtIdKeyReleased
+
+    private void txtNameComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_txtNameComponentAdded
+
+    }//GEN-LAST:event_txtNameComponentAdded
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtNameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyPressed
+
+    }//GEN-LAST:event_txtNameKeyPressed
+
+    private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
+        String name;
+        if(txtName.getText().matches("[A-Za-zá-ú ]*")){
+            lblNameWarning.setVisible(false);
+            name = txtName.getText();
+            clinicalHistory.setName(name);
+        }else{
+            lblNameWarning.setText("Ingrese solo nombres validos.");
+            lblNameWarning.setForeground(Color.red);
+            lblNameWarning.setVisible(true);
+            btnUpdatePatient.setEnabled(false);
+        }
+        txtName.getParent().revalidate();
+        txtName.getParent().repaint();
+        verifyFilledFields();
+    }//GEN-LAST:event_txtNameKeyReleased
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+
+    }//GEN-LAST:event_txtNameKeyTyped
 
     private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
         int age;
@@ -556,22 +615,22 @@ public class FrmAddPatients extends javax.swing.JFrame {
                 lblAgeWarning.setText("Ingrese solo numeros positivos");
                 lblAgeWarning.setForeground(Color.red);
                 lblAgeWarning.setVisible(true);
-                btnAddPatient.setEnabled(false);
+                btnUpdatePatient.setEnabled(false);
             }
         }else{
             lblAgeWarning.setText("Ingrese solo numeros enteros");
             lblAgeWarning.setForeground(Color.red);
             lblAgeWarning.setVisible(true);
-            btnAddPatient.setEnabled(false);
+            btnUpdatePatient.setEnabled(false);
         }
         txtAge.getParent().revalidate();
         txtAge.getParent().repaint();
         verifyFilledFields();
     }//GEN-LAST:event_txtAgeKeyReleased
 
-    private void txtIdInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_txtIdInputMethodTextChanged
-        
-    }//GEN-LAST:event_txtIdInputMethodTextChanged
+    private void txtWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWeightActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtWeightActionPerformed
 
     private void txtWeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtWeightKeyReleased
         double weight;
@@ -584,46 +643,18 @@ public class FrmAddPatients extends javax.swing.JFrame {
                 lblWeightWarning.setText("Ingrese solo numeros positivos");
                 lblWeightWarning.setForeground(Color.red);
                 lblWeightWarning.setVisible(true);
-                btnAddPatient.setEnabled(false);
+                btnUpdatePatient.setEnabled(false);
             }
         } else {
             lblWeightWarning.setText("Ingrese un número válido");
             lblWeightWarning.setForeground(Color.red);
             lblWeightWarning.setVisible(true);
-            btnAddPatient.setEnabled(false);
+            btnUpdatePatient.setEnabled(false);
         }
         txtWeight.getParent().revalidate();
         txtWeight.getParent().repaint();
         verifyFilledFields();
     }//GEN-LAST:event_txtWeightKeyReleased
-
-    private void txtHeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHeightKeyReleased
-        double height;
-        if (txtHeight.getText().matches("\\d*\\.?\\d*") && !txtHeight.getText().isEmpty()) {
-            height = Double.parseDouble(txtHeight.getText());
-            if (height > 0) {
-                lblHeightWarning.setVisible(false);
-                clinicalHistory.setHeight(height);
-            } else {
-                lblHeightWarning.setText("Ingrese solo numeros positivos");
-                lblHeightWarning.setForeground(Color.red);
-                lblHeightWarning.setVisible(true);
-                btnAddPatient.setEnabled(false);
-            }
-        } else {
-            lblHeightWarning.setText("Ingrese un número válido");
-            lblHeightWarning.setForeground(Color.red);
-            lblHeightWarning.setVisible(true);
-            btnAddPatient.setEnabled(false);
-        }
-        txtHeight.getParent().revalidate();
-        txtHeight.getParent().repaint();
-        verifyFilledFields();
-    }//GEN-LAST:event_txtHeightKeyReleased
-
-    private void lblContactNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblContactNumberKeyReleased
-
-    }//GEN-LAST:event_lblContactNumberKeyReleased
 
     private void txtCellPhoneNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCellPhoneNumberActionPerformed
         // TODO add your handling code here:
@@ -639,19 +670,36 @@ public class FrmAddPatients extends javax.swing.JFrame {
             lblContactNumber.setText("Ingrese solo numeros validos.");
             lblContactNumber.setForeground(Color.red);
             lblContactNumber.setVisible(true);
-            btnAddPatient.setEnabled(false);
+            btnUpdatePatient.setEnabled(false);
         }
         txtCellPhoneNumber.getParent().revalidate();
         txtCellPhoneNumber.getParent().repaint();
         verifyFilledFields();
     }//GEN-LAST:event_txtCellPhoneNumberKeyReleased
 
-    private void txtDiseaseSymptomsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiseaseSymptomsKeyReleased
-        String diseaseSymptoms;
-        diseaseSymptoms = txtDiseaseSymptoms.getText();
-        clinicalHistory.setDiseaseSymptoms(diseaseSymptoms);
+    private void txtHeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHeightKeyReleased
+        double height;
+        if (txtHeight.getText().matches("\\d*\\.?\\d*") && !txtHeight.getText().isEmpty()) {
+            height = Double.parseDouble(txtHeight.getText());
+            if (height > 0) {
+                lblHeightWarning.setVisible(false);
+                clinicalHistory.setHeight(height);
+            } else {
+                lblHeightWarning.setText("Ingrese solo numeros positivos");
+                lblHeightWarning.setForeground(Color.red);
+                lblHeightWarning.setVisible(true);
+                btnUpdatePatient.setEnabled(false);
+            }
+        } else {
+            lblHeightWarning.setText("Ingrese un número válido");
+            lblHeightWarning.setForeground(Color.red);
+            lblHeightWarning.setVisible(true);
+            btnUpdatePatient.setEnabled(false);
+        }
+        txtHeight.getParent().revalidate();
+        txtHeight.getParent().repaint();
         verifyFilledFields();
-    }//GEN-LAST:event_txtDiseaseSymptomsKeyReleased
+    }//GEN-LAST:event_txtHeightKeyReleased
 
     private void txtSystemicDiseasesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSystemicDiseasesActionPerformed
 
@@ -664,20 +712,20 @@ public class FrmAddPatients extends javax.swing.JFrame {
         verifyFilledFields();
     }//GEN-LAST:event_txtSystemicDiseasesKeyReleased
 
-    private void txtPatientTreatmentKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientTreatmentKeyReleased
-        String patientTreatment;
-        patientTreatment = txtPatientTreatment.getText();
-        clinicalHistory.setPatientTreatment(patientTreatment);
+    private void txtDiseaseSymptomsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDiseaseSymptomsKeyReleased
+        String diseaseSymptoms;
+        diseaseSymptoms = txtDiseaseSymptoms.getText();
+        clinicalHistory.setDiseaseSymptoms(diseaseSymptoms);
         verifyFilledFields();
-    }//GEN-LAST:event_txtPatientTreatmentKeyReleased
+    }//GEN-LAST:event_txtDiseaseSymptomsKeyReleased
 
-    private void cdarStarDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cdarStarDatePropertyChange
-        verifyFilledFields();
-    }//GEN-LAST:event_cdarStarDatePropertyChange
+    private void txtAgePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtAgePropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtAgePropertyChange
 
-    private void cdarEndDatePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cdarEndDatePropertyChange
-        verifyFilledFields();
-    }//GEN-LAST:event_cdarEndDatePropertyChange
+    private void txtIdPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txtIdPropertyChange
+        
+    }//GEN-LAST:event_txtIdPropertyChange
 
     private void btnDupplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDupplyActionPerformed
         // TODO add your handling code here:
@@ -693,7 +741,7 @@ public class FrmAddPatients extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El ID no existe en la base de datos.", "Verificación de ID", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnDupplyActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
@@ -711,35 +759,33 @@ public class FrmAddPatients extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmAddPatients.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPatientToEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmAddPatients.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPatientToEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmAddPatients.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPatientToEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmAddPatients.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmPatientToEdit.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmAddPatients().setVisible(true);
-                
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddPatient;
+    private javax.swing.JButton btGoBack;
     private javax.swing.JButton btnDupply;
+    private javax.swing.JButton btnUpdatePatient;
     private com.toedter.calendar.JDateChooser cdarEndDate;
     private com.toedter.calendar.JDateChooser cdarStarDate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
