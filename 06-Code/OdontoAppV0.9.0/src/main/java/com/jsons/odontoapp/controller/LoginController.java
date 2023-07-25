@@ -35,6 +35,8 @@ public class LoginController {
 
     
     public void PasswordController() {
+        //instanciar los atributos de database y collection para ser usados en los otros metodos, 
+        //ademas de hacer unas impresiones por consola
         ConnectionString connectionString = new ConnectionString(CONNECTION_STRING);
         MongoClientSettings settings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)

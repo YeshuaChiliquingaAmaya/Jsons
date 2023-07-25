@@ -106,6 +106,11 @@ public class FrmAddPatients extends javax.swing.JFrame {
 
         jLabel2.setText("Tratamiento del Paciente:");
 
+        txtPatientTreatment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPatientTreatmentActionPerformed(evt);
+            }
+        });
         txtPatientTreatment.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPatientTreatmentKeyReleased(evt);
@@ -693,6 +698,10 @@ public class FrmAddPatients extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "El ID no existe en la base de datos.", "Verificación de ID", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnDupplyActionPerformed
+
+    private void txtPatientTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientTreatmentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPatientTreatmentActionPerformed
     
     /**
      * @param args the command line arguments
