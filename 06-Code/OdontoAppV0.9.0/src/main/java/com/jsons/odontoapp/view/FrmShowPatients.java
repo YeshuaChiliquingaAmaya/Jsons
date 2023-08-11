@@ -93,6 +93,7 @@ public class FrmShowPatients extends javax.swing.JFrame {
         tblPatients.setEnabled(false);
         jScrollPane1.setViewportView(tblPatients);
 
+        jButton1.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

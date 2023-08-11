@@ -207,6 +207,7 @@ public class FrmBuyServices extends javax.swing.JFrame {
         });
         JScrollPanelPatientsTable.setViewportView(tblServices);
 
+        btnAddCart.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         btnAddCart.setText("Añadir al carrito");
         btnAddCart.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,7 +225,7 @@ public class FrmBuyServices extends javax.swing.JFrame {
                         .addComponent(btnAddCart)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblAddCart, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 495, Short.MAX_VALUE))
+                        .addGap(0, 493, Short.MAX_VALUE))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addContainerGap())
         );

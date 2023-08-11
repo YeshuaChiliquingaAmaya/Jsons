@@ -172,8 +172,10 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel4.setText("Fecha de Finalización de Tratamiento:");
 
+        jLabel2.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel2.setText("Tratamiento del Paciente:");
 
         txtPatientTreatment.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -182,6 +184,7 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
             }
         });
 
+        jLabel12.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel12.setText("Enfermedades Sistemáticas:");
 
         cdarStarDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -213,6 +216,7 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel3.setText("Fecha de Inicio de Tratamiento:");
 
         txtName.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -270,6 +274,7 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel1.setText("Altura en m (separe con puntos):");
 
         txtHeight.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -289,14 +294,19 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
             }
         });
 
+        jLabel6.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel6.setText("Id:");
 
+        jLabel7.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel7.setText("Nombre:");
 
+        jLabel8.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel8.setText("Edad:");
 
+        jLabel9.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel9.setText("Peso en kg (separe con puntos):");
 
+        jLabel10.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel10.setText("Síntomas:");
 
         txtDiseaseSymptoms.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -306,6 +316,7 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(txtDiseaseSymptoms);
 
+        jLabel11.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel11.setText("Número de contacto:");
 
         btnDupply.setText("Verificar duplicados");

@@ -154,12 +154,16 @@ public class FrmBill extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 153, 255));
 
+        jLabel1.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel1.setText("Factura");
 
+        jLabel2.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel2.setText("Fecha:");
 
+        jLabel3.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel3.setText("Nombre del paciente:");
 
+        jLabel6.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel6.setText("Compras Realizadas");
 
         tblServices.setModel(new javax.swing.table.DefaultTableModel(
@@ -201,6 +205,7 @@ public class FrmBill extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(tblDiscount);
 
+        jLabel4.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel4.setText("Precio Final:");
 
         btnGoBack.setText("Regresar Al Menu Principal");
@@ -284,7 +289,7 @@ public class FrmBill extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(lblFinalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGoBack)
                     .addComponent(btnPrintBill))

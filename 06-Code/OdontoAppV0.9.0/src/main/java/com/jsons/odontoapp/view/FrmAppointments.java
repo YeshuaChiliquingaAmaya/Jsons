@@ -101,8 +101,10 @@ public class FrmAppointments extends javax.swing.JFrame {
         txtName.setRows(5);
         jScrollPane1.setViewportView(txtName);
 
+        jLabel3.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel3.setText("Información del Paciente:");
 
+        btnBack.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         btnBack.setText("Regresar");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,8 +112,10 @@ public class FrmAppointments extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel1.setText("Agendamiento de CItas a pacientes");
 
+        btnAgend.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         btnAgend.setText("Agendar Cita");
         btnAgend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -119,13 +123,16 @@ public class FrmAppointments extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel2.setText("Día");
 
+        jLabel4.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel4.setText("Hora");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "10:00 am", "11:00 am", "12:00 pm", "1:00 pm", "2:00 pm", "3:00 pm", "4:00 pm" }));
         jComboBox2.setToolTipText("Seleccione la hora de la cita");
 
+        jLabel5.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel5.setText("Tratamiento");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

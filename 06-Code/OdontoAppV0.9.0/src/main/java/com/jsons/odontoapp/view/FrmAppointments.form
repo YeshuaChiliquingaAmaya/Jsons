@@ -153,11 +153,17 @@
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Constantia" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Informaci&#xf3;n del Paciente:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnBack">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Constantia" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Regresar"/>
           </Properties>
           <Events>
@@ -166,11 +172,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Constantia" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agendamiento de CItas a pacientes"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnAgend">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Constantia" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Agendar Cita"/>
           </Properties>
           <Events>
@@ -181,11 +193,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Constantia" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="D&#xed;a"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Constantia" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Hora"/>
           </Properties>
         </Component>
@@ -210,6 +228,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Constantia" size="12" style="0"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Tratamiento"/>
           </Properties>
         </Component>

@@ -71,6 +71,7 @@ public class FrmRevenues extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(204, 153, 255));
 
+        jLabel2.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jLabel2.setText("Ganancias al Día");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -123,6 +124,7 @@ public class FrmRevenues extends javax.swing.JFrame {
                 .addContainerGap(42, Short.MAX_VALUE))
         );
 
+        jCheckBox1.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jCheckBox1.setText("Activar Ganancias al Mes");
         jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,6 +132,7 @@ public class FrmRevenues extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jButton1.setText("Mostrar Factura de gancias");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -137,9 +140,10 @@ public class FrmRevenues extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Liberation Sans", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Constantia", 0, 18)); // NOI18N
         jLabel1.setText("Calculadora de Ganancia");
 
+        jButton2.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jButton2.setText("<-- Regresar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,8 +194,7 @@ public class FrmRevenues extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(52, 52, 52)
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jButton1)))
                 .addContainerGap())
         );
 

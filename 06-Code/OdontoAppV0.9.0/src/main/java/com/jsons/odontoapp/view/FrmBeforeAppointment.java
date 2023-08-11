@@ -139,6 +139,7 @@ public class FrmBeforeAppointment extends javax.swing.JFrame {
         JScrollPanelPatientsTable.setViewportView(tblPatients);
         tblPatients.getAccessibleContext().setAccessibleParent(jPanel1);
 
+        btnGenrateAppointment.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         btnGenrateAppointment.setText("Generar Cita");
         btnGenrateAppointment.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -146,6 +147,7 @@ public class FrmBeforeAppointment extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jButton1.setText("Regresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +155,7 @@ public class FrmBeforeAppointment extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         jButton2.setText("Siguiente Página");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -173,6 +176,7 @@ public class FrmBeforeAppointment extends javax.swing.JFrame {
                     .addComponent(jButton2)))
         );
 
+        btnAppointmentPreviously.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         btnAppointmentPreviously.setText("Ver cita Pendiente");
         btnAppointmentPreviously.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -207,7 +211,7 @@ public class FrmBeforeAppointment extends javax.swing.JFrame {
                         .addComponent(lblEditWarning, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(btnAppointmentPreviously))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JScrollPanelPatientsTable, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                .addComponent(JScrollPanelPatientsTable, javax.swing.GroupLayout.DEFAULT_SIZE, 348, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
