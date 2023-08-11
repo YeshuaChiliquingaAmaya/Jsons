@@ -81,6 +81,8 @@ public class FrmEditPatients extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
+
         tblPatients.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 

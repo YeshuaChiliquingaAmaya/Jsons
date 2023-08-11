@@ -50,7 +50,7 @@ public class FrmOdontoApp extends javax.swing.JFrame {
         setBackground(new java.awt.Color(204, 0, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jPanel1.setBackground(new java.awt.Color(227, 227, 254));
+        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
 
         jLabel1.setFont(new java.awt.Font("Constantia", 0, 24)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Logo2.jpeg"))); // NOI18N
@@ -62,14 +62,14 @@ public class FrmOdontoApp extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jLabel1)
-                .addContainerGap(551, Short.MAX_VALUE))
+                .addContainerGap(533, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 624, Short.MAX_VALUE)
         );
 
-        mnubar.setBackground(new java.awt.Color(102, 204, 255));
+        mnubar.setBackground(new java.awt.Color(204, 153, 255));
         mnubar.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
 
         mnuPatients.setText("Pacientes");

@@ -49,7 +49,7 @@ public class FrmLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(227, 227, 254));
+        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
         jPanel1.setForeground(new java.awt.Color(255, 51, 0));
         jPanel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 

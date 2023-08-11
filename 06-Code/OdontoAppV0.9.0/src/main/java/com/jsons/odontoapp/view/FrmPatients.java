@@ -43,7 +43,7 @@ public class FrmPatients extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 255, 255));
 
-        jPanel1.setBackground(new java.awt.Color(199, 226, 253));
+        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
 
         btnShowPatients.setFont(new java.awt.Font("Constantia", 0, 12)); // NOI18N
         btnShowPatients.setText("Mostrar Pacientes");

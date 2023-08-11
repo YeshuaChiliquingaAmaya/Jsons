@@ -86,9 +86,12 @@ public class FrmAddPatients extends javax.swing.JFrame {
         btnDupply = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         btnAddPatient = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setForeground(new java.awt.Color(255, 213, 172));
+
+        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
 
         cdarEndDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
@@ -359,6 +362,8 @@ public class FrmAddPatients extends javax.swing.JFrame {
                 .addGap(167, 167, 167))
         );
 
+        jPanel2.setBackground(new java.awt.Color(204, 153, 255));
+
         btnAddPatient.setText("Añadir");
         btnAddPatient.setEnabled(false);
         btnAddPatient.addActionListener(new java.awt.event.ActionListener() {
@@ -367,12 +372,21 @@ public class FrmAddPatients extends javax.swing.JFrame {
             }
         });
 
+        btnBack.setText("Regresar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(483, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
+                .addComponent(btnBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 373, Short.MAX_VALUE)
                 .addComponent(btnAddPatient)
                 .addGap(467, 467, 467))
         );
@@ -380,7 +394,9 @@ public class FrmAddPatients extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddPatient)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddPatient)
+                    .addComponent(btnBack))
                 .addContainerGap())
         );
 
@@ -702,6 +718,13 @@ public class FrmAddPatients extends javax.swing.JFrame {
     private void txtPatientTreatmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientTreatmentActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPatientTreatmentActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        FrmPatients menupatients = new FrmPatients();
+        menupatients.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnBackActionPerformed
     
     /**
      * @param args the command line arguments
@@ -741,6 +764,7 @@ public class FrmAddPatients extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddPatient;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDupply;
     private com.toedter.calendar.JDateChooser cdarEndDate;
     private com.toedter.calendar.JDateChooser cdarStarDate;
