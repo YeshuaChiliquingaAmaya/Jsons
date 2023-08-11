@@ -158,6 +158,8 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jPanel1.setBackground(new java.awt.Color(204, 153, 255));
+
         cdarEndDate.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
             public void propertyChange(java.beans.PropertyChangeEvent evt) {
                 cdarEndDatePropertyChange(evt);
