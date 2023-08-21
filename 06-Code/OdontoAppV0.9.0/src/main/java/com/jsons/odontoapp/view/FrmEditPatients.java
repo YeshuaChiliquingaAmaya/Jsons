@@ -43,7 +43,11 @@ public class FrmEditPatients extends javax.swing.JFrame {
             data[5] = patient.getClinicalHistory().getDiseaseSymptoms();
             data[6] = patient.getClinicalHistory().getCellphone();
             data[7] = patient.getClinicalHistory().getSystemicDiseases();
-            data[8] = patient.getClinicalHistory().getPatientTreatment();
+            if("Endodoncia".equals(patient.getClinicalHistory().getPatientTreatment())){
+                data[8] = patient.getClinicalHistory().getPatientTreatment() + " (Urgente)";
+            }else{
+                data[8] = patient.getClinicalHistory().getPatientTreatment();
+            }
             data[9] = patient.getClinicalHistory().getTreatmentDateStart();
             data[10] = patient.getClinicalHistory().getTreatmentEndDate();
             tablePatients.addRow(data);
