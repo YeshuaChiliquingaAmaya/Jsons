@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.jsons.odontoapp.controller.CesarCipherControllerTest" time="0.007" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="com.jsons.odontoapp.controller.CesarCipherControllerTest" time="0.01" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="20.0.1+9-29"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-20\bin"/>
-    <property name="maven.multiModuleProjectDirectory" value="C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.8.8"/>
+    <property name="maven.multiModuleProjectDirectory" value="C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.9.0"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="https://java.oracle.com/"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
@@ -15,7 +15,7 @@
     <property name="user.country" value="EC"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
-    <property name="user.dir" value="C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.8.8"/>
+    <property name="user.dir" value="C:\Users\DARÍO BENAVIDES\Desktop\ESPE\MATERIA_OFICIAL_SEGUNDO\Jsons\06-Code\OdontoAppV0.9.0"/>
     <property name="java.vm.compressedOopsMode" value="Zero based"/>
     <property name="java.runtime.version" value="20.0.1+9-29"/>
     <property name="os.arch" value="amd64"/>
@@ -62,8 +62,8 @@
     <property name="sun.cpu.endian" value="little"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.jsons.odontoapp.controller.CesarCipherControllerTest" name="com.jsons.odontoapp.controller.CesarCipherControllerTest.testEncrypt" time="0.007"/>
-  <testcase classname="com.jsons.odontoapp.controller.CesarCipherControllerTest" name="com.jsons.odontoapp.controller.CesarCipherControllerTest.testEncrypt3" time="0"/>
+  <testcase classname="com.jsons.odontoapp.controller.CesarCipherControllerTest" name="com.jsons.odontoapp.controller.CesarCipherControllerTest.testEncryptWithNegativeShift" time="0.01"/>
   <testcase classname="com.jsons.odontoapp.controller.CesarCipherControllerTest" name="com.jsons.odontoapp.controller.CesarCipherControllerTest.testEncryptWithNonAlphabeticCharacters" time="0"/>
-  <testcase classname="com.jsons.odontoapp.controller.CesarCipherControllerTest" name="com.jsons.odontoapp.controller.CesarCipherControllerTest.testEncryptWithNegativeShift" time="0"/>
+  <testcase classname="com.jsons.odontoapp.controller.CesarCipherControllerTest" name="com.jsons.odontoapp.controller.CesarCipherControllerTest.testEncrypt" time="0"/>
+  <testcase classname="com.jsons.odontoapp.controller.CesarCipherControllerTest" name="com.jsons.odontoapp.controller.CesarCipherControllerTest.testEncrypt3" time="0"/>
 </testsuite>

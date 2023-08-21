@@ -18,12 +18,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmChoosePatient extends javax.swing.JFrame {
 
+    PatientController patientController = new PatientController();
     DefaultTableModel tablePatients = new DefaultTableModel();
     ArrayList<Patient> patients = new ArrayList<Patient>();
     Patient patient;
     
     private void fillPatients(){
-         patients = PatientController.show();
+         patients = patientController.show();
     }
     
     private void setModel(){

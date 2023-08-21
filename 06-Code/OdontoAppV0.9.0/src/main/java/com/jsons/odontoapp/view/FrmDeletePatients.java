@@ -19,12 +19,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmDeletePatients extends javax.swing.JFrame {
 
+    PatientController patientController = new PatientController();
     DefaultTableModel tablePatients = new DefaultTableModel();
     ArrayList<Patient> patients = new ArrayList<Patient>();
     Patient patient;
     
     private void fillPatients(){
-         patients = PatientController.show();
+         patients = patientController.show();
     }
      
     private void setModel(){
@@ -230,7 +231,7 @@ public class FrmDeletePatients extends javax.swing.JFrame {
             int option = JOptionPane.showConfirmDialog(this,"Está segura de que desea eliminar a " + patient.getClinicalHistory().getName() + "?", "saving warning",1);
             if(option == 0){
                 JOptionPane.showMessageDialog(rootPane, "Paciente Eliminado.");
-                PatientController.delete(patient.getClinicalHistory().getId());
+                patientController.delete(patient.getClinicalHistory().getId());
             }
             if(option == 1){
                 JOptionPane.showMessageDialog(rootPane, "Acción Negada.");

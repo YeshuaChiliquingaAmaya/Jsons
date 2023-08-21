@@ -1,13 +1,6 @@
 package com.jsons.odontoapp.controller;
 
-import com.mongodb.ConnectionString;
-import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoException;
-import com.mongodb.ServerApi;
-import com.mongodb.ServerApiVersion;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
 import com.google.gson.Gson;
 import com.jsons.odontoapp.model.Appointment;
@@ -17,7 +10,6 @@ import com.jsons.odontoapp.model.Service;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoCursor;
-import static com.mongodb.client.model.Filters.eq;
 import java.util.ArrayList;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -31,55 +23,27 @@ import java.util.Locale;
  *
  * @author Pablo Carrera, Jsons, DCCO-ESPE
  */
-public class PatientController {
+public class PatientController extends ConnectionController{
     
-    public static void add(Patient patient){
-        
-        String connectionString = "mongodb+srv://RBenavides:RBenavides@cluster0.js2ve9m.mongodb.net/";
-        
-                ServerApi serverApi = ServerApi.builder()
-                .version(ServerApiVersion.V1)
-                .build();
-        
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString(connectionString))
-                .serverApi(serverApi)
-                .build();
-        
-        try (MongoClient mongoClient = MongoClients.create(settings)) {
+    MongoCollection<Document> collection = super.getDatabase().getCollection("Patients");
+    
+    public void add(Patient patient){
             try {
-                MongoDatabase database = mongoClient.getDatabase("OdontoApp");
                 Gson json = new Gson();
                 String patientData = json.toJson(patient);
                 Document document = Document.parse(patientData);
-                database.getCollection("Patients").insertOne(document);
+                collection.insertOne(document);
             } catch (MongoException e) {
                 e.printStackTrace();
             }
-        }
         
     }
     
-    public static ArrayList<Patient> show(){
-        
-        String connectionString = "mongodb+srv://RBenavides:RBenavides@cluster0.js2ve9m.mongodb.net/";
-
-        ServerApi serverApi = ServerApi.builder()
-        .version(ServerApiVersion.V1)
-        .build();
-        
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString(connectionString))
-                .serverApi(serverApi)
-                .build();
+    public ArrayList<Patient> show(){
         
         ArrayList<Patient> patients = new ArrayList<Patient>();
-        
-        try (MongoClient mongoClient = MongoClients.create(settings)) {
             try {
-                MongoDatabase database = mongoClient.getDatabase("OdontoApp");
                 Gson json = new Gson();
-                MongoCollection<Document> collection = database.getCollection("Patients");
                 MongoCursor<Document> cursor = collection.find().iterator();
                 while (cursor.hasNext()) {
                     Document document = cursor.next();
@@ -165,126 +129,59 @@ public class PatientController {
             } catch (MongoException e) {
                 e.printStackTrace();
             }
-        }
-        
         return patients;
     }
     
-    public static void update(int patientId, Patient newPatient) {
-        
-        String connectionString = "mongodb+srv://RBenavides:RBenavides@cluster0.js2ve9m.mongodb.net/";
-        
-                ServerApi serverApi = ServerApi.builder()
-                .version(ServerApiVersion.V1)
-                .build();
-        
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString(connectionString))
-                .serverApi(serverApi)
-                .build();
-        
-        try (MongoClient mongoClient = MongoClients.create(settings)) {
+    public void update(int patientId, Patient newPatient) {
             try {
-                MongoDatabase database = mongoClient.getDatabase("OdontoApp");
                 Document filter = new Document("clinicalHistory.id", patientId);
 
                 Gson json = new Gson();
                 String patientData = json.toJson(newPatient);
                 Document document = Document.parse(patientData);
                 Document newDocument = new Document("$set", document);
-
-                database.getCollection("Patients").updateOne(filter, newDocument);
+                collection.updateOne(filter, newDocument);
             } catch (MongoException e) {
                 e.printStackTrace();
             }
-        } 
     }   
 
-    public static void delete(int patientId){
-    
-        String connectionString = "mongodb+srv://RBenavides:RBenavides@cluster0.js2ve9m.mongodb.net/";
-
-        ServerApi serverApi = ServerApi.builder()
-        .version(ServerApiVersion.V1)
-        .build();
-        
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString(connectionString))
-                .serverApi(serverApi)
-                .build();
-        
-        try (MongoClient mongoClient = MongoClients.create(settings)) {
-            try {
-                MongoDatabase database = mongoClient.getDatabase("OdontoApp");
-                Document filter = new Document("clinicalHistory.id", patientId);
-
-                database.getCollection("Patients").deleteOne(filter);
-            } catch (MongoException e) {
-                e.printStackTrace();
-            }
+    public void delete(int patientId){
+        try {
+            Document filter = new Document("clinicalHistory.id", patientId);
+            collection.deleteOne(filter);
+        } catch (MongoException e) {
+            e.printStackTrace();
         } 
         
     }
     
-    public static ArrayList<Appointment> getAppointmentsByPatientId(int patientId) {
+    public ArrayList<Appointment> getAppointmentsByPatientId(int patientId) {
         ArrayList<Appointment> appointments = new ArrayList<>();
-
-        String connectionString = "mongodb+srv://RBenavides:RBenavides@cluster0.js2ve9m.mongodb.net/";
-        ServerApi serverApi = ServerApi.builder()
-                .version(ServerApiVersion.V1)
-                .build();
-
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString(connectionString))
-                .serverApi(serverApi)
-                .build();
-
-        try (MongoClient mongoClient = MongoClients.create(settings)) {
             try {
-                MongoDatabase database = mongoClient.getDatabase("OdontoApp");
                 Gson json = new Gson();
-                MongoCollection<Document> collection = database.getCollection("Patients");
-
                 Document query = new Document("clinicalHistory.id", patientId);
                 FindIterable<Document> result = collection.find(query);
-
                 for (Document document : result) {
                     Patient patient = json.fromJson(document.toJson(), Patient.class);
                     if (patient.getClinicalHistory().getId() == patientId) {
                         appointments.addAll(patient.getAppointments());
-                        break; // Assuming there's only one patient with the given ID
+                        break;
                     }
                 }
             } catch (MongoException e) {
                 e.printStackTrace();
             }
-        }
-
         return appointments;
     }
     
-    public static ArrayList<Appointment> showAppointments() {
+    public ArrayList<Appointment> showAppointments() {
         ArrayList<Appointment> appointments = new ArrayList<>();
-
-        String connectionString = "mongodb+srv://RBenavides:RBenavides@cluster0.js2ve9m.mongodb.net/";
-        ServerApi serverApi = ServerApi.builder()
-                .version(ServerApiVersion.V1)
-                .build();
-
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString(connectionString))
-                .serverApi(serverApi)
-                .build();
-
-        try (MongoClient mongoClient = MongoClients.create(settings)) {
             try {
-                MongoDatabase database = mongoClient.getDatabase("OdontoApp");
                 Gson json = new Gson();
-                MongoCollection<Document> collection = database.getCollection("Patients");
                 MongoCursor<Document> cursor = collection.find().iterator();
                 while (cursor.hasNext()) {
                     Document document = cursor.next();
-
                     ArrayList<Document> appointmentsDocuments = (ArrayList<Document>) document.get("appointments");
                     Iterator<Document> appointmentIterator = appointmentsDocuments.iterator();
                     while (appointmentIterator.hasNext()) {
@@ -311,8 +208,6 @@ public class PatientController {
             } catch (MongoException e) {
                 e.printStackTrace();
             }
-        }
-
         return appointments;
     }
 

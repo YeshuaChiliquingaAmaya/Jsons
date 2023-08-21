@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
  * @author yeshualinux
  */
 public class FrmAppointments extends javax.swing.JFrame {
+    PatientController patientController = new PatientController();
     int patientId;
     Appointment appointment = new Appointment();
     ArrayList<Appointment> appointments = new ArrayList<Appointment>();
@@ -230,7 +231,7 @@ public class FrmAppointments extends javax.swing.JFrame {
 
         patient.setAppointments(appointments);
 
-        PatientController.update(patient.getClinicalHistory().getId(), patient);
+        patientController.update(patient.getClinicalHistory().getId(), patient);
 
         JOptionPane.showMessageDialog(this, "Cita agendada exitosamente");
         

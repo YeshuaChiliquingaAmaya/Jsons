@@ -21,12 +21,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmBeforeAppointment extends javax.swing.JFrame {
 
+    PatientController patientController = new PatientController();
     DefaultTableModel tablePatients = new DefaultTableModel();
     ArrayList<Patient> patients = new ArrayList<Patient>();
     Patient patient;
     
     private void fillPatients(){
-         patients = PatientController.show();
+        patients = patientController.show();
     }
      
     private void setModel(){
@@ -277,7 +278,7 @@ public class FrmBeforeAppointment extends javax.swing.JFrame {
         } else {
             lblEditWarning.setVisible(false);
             Patient patient = patients.get(tblPatients.getSelectedRow());
-            ArrayList<Appointment> appointments = PatientController.getAppointmentsByPatientId(patient.getClinicalHistory().getId());
+            ArrayList<Appointment> appointments = patientController.getAppointmentsByPatientId(patient.getClinicalHistory().getId());
 
             StringBuilder sb = new StringBuilder();
             for (Appointment appointment : appointments) {

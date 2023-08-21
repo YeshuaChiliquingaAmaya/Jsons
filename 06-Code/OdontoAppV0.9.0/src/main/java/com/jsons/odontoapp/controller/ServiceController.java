@@ -21,33 +21,20 @@ import org.bson.Document;
  *
  * @author Pablo Carrera, Jsons, DCCO-ESPE
  */
-public class ServiceController {
-    public static void add(Patient patient){
-        String connectionString = "mongodb+srv://RBenavides:RBenavides@cluster0.js2ve9m.mongodb.net/";
-        
-                ServerApi serverApi = ServerApi.builder()
-                .version(ServerApiVersion.V1)
-                .build();
-        
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(new ConnectionString(connectionString))
-                .serverApi(serverApi)
-                .build();
-        
-        try (MongoClient mongoClient = MongoClients.create(settings)) {
-            try {
-                MongoDatabase database = mongoClient.getDatabase("OdontoApp");
-                Document filter = new Document("clinicalHistory.id", patient.getClinicalHistory().getId());
-
-                Gson json = new Gson();
-                String patientData = json.toJson(patient);
-                Document document = Document.parse(patientData);
-                Document newDocument = new Document("$set", document);
-
-                database.getCollection("Dentist").updateOne(filter, newDocument);
-            } catch (MongoException e) {
-                e.printStackTrace();
-            }
+public class ServiceController extends ConnectionController{
+    
+    MongoCollection<Document> collection = super.getDatabase().getCollection("Dentist");
+    
+    public void add(Patient patient){
+        try {
+            Document filter = new Document("clinicalHistory.id", patient.getClinicalHistory().getId());
+            Gson json = new Gson();
+            String patientData = json.toJson(patient);
+            Document document = Document.parse(patientData);
+            Document newDocument = new Document("$set", document);
+            collection.updateOne(filter, newDocument);
+        } catch (MongoException e) {
+            e.printStackTrace();
         }
     }
    

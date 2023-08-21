@@ -22,6 +22,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class FrmBuyServices extends javax.swing.JFrame {
 
+    ServiceController serviceController = new ServiceController();
     DefaultTableModel tableServices = new DefaultTableModel();
     DefaultTableModel tableCart = new DefaultTableModel();
 
@@ -594,7 +595,7 @@ public class FrmBuyServices extends javax.swing.JFrame {
                         patient.getAcquiredServices().add(i, service);
                         i++;
                     }
-                    ServiceController.add(patient);
+                    serviceController.add(patient);
                     FrmBill bill = new FrmBill(services, patient, availableDiscount);
                     bill.setVisible(true);
                     this.setVisible(false);
@@ -615,7 +616,7 @@ public class FrmBuyServices extends javax.swing.JFrame {
                         patient.getAcquiredServices().add(i, service);
                         i++;
                     }
-                    ServiceController.add(patient);
+                    serviceController.add(patient);
                     FrmBill bill = new FrmBill(services, patient, availableDiscount);
                     bill.setVisible(true);
                     this.setVisible(false);

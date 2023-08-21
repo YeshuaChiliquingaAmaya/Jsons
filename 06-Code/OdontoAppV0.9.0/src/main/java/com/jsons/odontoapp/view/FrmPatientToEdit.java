@@ -23,6 +23,7 @@ import javax.swing.JOptionPane;
  */
 public class FrmPatientToEdit extends javax.swing.JFrame {
     
+    PatientController patientController = new PatientController();
     int patientId;
     Patient newPatient = new Patient();
     ClinicalHistory clinicalHistory = new ClinicalHistory();
@@ -482,7 +483,7 @@ public class FrmPatientToEdit extends javax.swing.JFrame {
         int option = JOptionPane.showConfirmDialog(this,"Está segura de que desea actualizar con los datos: \n" + newPatient.OnlyPatientsToString(), "saving warning",1);
         if(option == 0){
             JOptionPane.showMessageDialog(rootPane, "saved, saving..");
-            PatientController.update(patientId, newPatient);
+            patientController.update(patientId, newPatient);
         }
         if(option == 1){
             JOptionPane.showMessageDialog(rootPane, "not saved");

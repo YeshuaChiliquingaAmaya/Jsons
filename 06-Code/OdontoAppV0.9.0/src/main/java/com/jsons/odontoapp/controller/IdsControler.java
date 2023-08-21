@@ -14,25 +14,10 @@ import org.bson.Document;
  *
  * @author Pablo Carrera, Jsons, DCCO-ESPE
  */
-public class IdsControler {
-    private static final String CONNECTION_STRING = "mongodb+srv://RBenavides:RBenavides@cluster0.js2ve9m.mongodb.net/";
-
-    private static MongoClient mongoClient;
-    private static MongoDatabase database;
-    private static MongoCollection<Document> collection;
+public class IdsControler extends ConnectionController{
+    private MongoCollection<Document> collection = super.getDatabase().getCollection("Patients");
     private Document selectedDocument;
     private String selectedJson;
-
-    public IdsControler() {
-        ConnectionString connectionString = new ConnectionString(CONNECTION_STRING);
-        MongoClientSettings settings = MongoClientSettings.builder()
-                .applyConnectionString(connectionString)
-                .build();
-        mongoClient = MongoClients.create(settings);
-        database = mongoClient.getDatabase("OdontoApp");
-        collection = database.getCollection("Patients");
-        System.out.println("ingreso a la base de datos");
-    }
 
     public boolean verifyrIdExist(String id) {
         BasicDBObject query = new BasicDBObject();

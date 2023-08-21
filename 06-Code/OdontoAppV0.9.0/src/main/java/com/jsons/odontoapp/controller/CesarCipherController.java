@@ -33,13 +33,6 @@ public class CesarCipherController {
         }
         return plainText.toString();
     }
-
-//    public static void main(String[] args) {
-//        String plainText = "OdontoApp";
-//        int shift = 3;
-//        String cipherText = encrypt(plainText, shift);
-//        System.out.println("Texto cifrado: " + cipherText);
-//    }
     
 }
 

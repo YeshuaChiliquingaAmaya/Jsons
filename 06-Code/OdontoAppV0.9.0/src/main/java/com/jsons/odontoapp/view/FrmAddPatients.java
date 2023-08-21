@@ -25,7 +25,7 @@ import org.bson.Document;
  * @author Ruben Benavides, Jsons, DCCO-ESPE
  */
 public class FrmAddPatients extends javax.swing.JFrame {
-
+    PatientController patientController = new PatientController();
     Patient patient = new Patient();
     ClinicalHistory clinicalHistory = new ClinicalHistory();
     ArrayList<Appointment> appointments = new ArrayList<Appointment>();
@@ -453,7 +453,7 @@ public class FrmAddPatients extends javax.swing.JFrame {
         int option = JOptionPane.showConfirmDialog(this,"Está segura de que desea añadir a: \n" + patient.OnlyPatientsToString(), "saving warning",1);
         if(option == 0){
             JOptionPane.showMessageDialog(rootPane, "Paciente añadido.");
-            PatientController.add(patient);
+            patientController.add(patient);
             clearFields();
         }
         if(option == 1){
