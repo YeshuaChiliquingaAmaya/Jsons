@@ -46,7 +46,11 @@ public class FrmBeforeAppointment extends javax.swing.JFrame {
             datos[5] = patient.getClinicalHistory().getDiseaseSymptoms();
             datos[6] = patient.getClinicalHistory().getCellphone();
             datos[7] = patient.getClinicalHistory().getSystemicDiseases();
-            datos[8] = patient.getClinicalHistory().getPatientTreatment();
+            if("Endodoncia".equals(patient.getClinicalHistory().getPatientTreatment())){
+                datos[8] = patient.getClinicalHistory().getPatientTreatment() + " (Urgente)";
+            }else{
+                datos[8] = patient.getClinicalHistory().getPatientTreatment();
+            }
             datos[9] = patient.getClinicalHistory().getTreatmentDateStart();
             datos[10] = patient.getClinicalHistory().getTreatmentEndDate();
             tablePatients.addRow(datos);
