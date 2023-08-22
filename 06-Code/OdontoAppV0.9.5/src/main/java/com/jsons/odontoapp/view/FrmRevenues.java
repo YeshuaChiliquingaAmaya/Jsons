@@ -223,7 +223,6 @@ public class FrmRevenues extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        // TODO add your handling code here:
         boolean isChecked = jCheckBox1.isSelected();
         jCalendar2.setEnabled(isChecked);
         jCalendar3.setEnabled(isChecked);

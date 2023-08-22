@@ -19,18 +19,25 @@ import org.bson.Document;
  */
 public class LoginController extends ConnectionController{
     
+    private static LoginController uniqueInstance;
     private MongoCollection<Document> collection = super.getDatabase().getCollection("Password");
     private Document selectedDocument;
     private String selectedJson;
     private JTextField txtPassword;
     private JTextField txtUsername;
+
+    public static LoginController getInstance(JTextField txtUsername, JTextField txtPassword){
+        if(uniqueInstance == null){
+            uniqueInstance = new LoginController(txtUsername, txtPassword);
+        }
+        return uniqueInstance;
+    }
     
-    public LoginController(JTextField txtUsername, JTextField txtPassword) {
+    private LoginController(JTextField txtUsername, JTextField txtPassword) {
         this.txtUsername = txtUsername;
         this.txtPassword = txtPassword;
-}
+    }
 
-    
     public void PasswordController() {
         
         System.out.println("ingreso a la base de datos");

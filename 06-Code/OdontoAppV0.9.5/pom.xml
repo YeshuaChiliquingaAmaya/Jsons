@@ -41,5 +41,5 @@
             <type>jar</type>
         </dependency>
     </dependencies>
-    <name>OdontoAppV8.0.9</name>
+    <name>OdontoAppV0.9.5</name>
 </project>

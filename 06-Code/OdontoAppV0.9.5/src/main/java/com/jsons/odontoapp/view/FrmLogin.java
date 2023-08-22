@@ -159,15 +159,14 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        //instanciar un objeto del tipo LoginController con parametros que recogen lo que se escriba en la caja de texto
-        LoginController login = new LoginController(txtUsername, txtPassword);
+
+        LoginController login = LoginController.getInstance(txtUsername, txtPassword);
         login.PasswordController();
         
-        //Verificar el usuario y la contraseña
         boolean validUseaname = login.VerificateUsername();
         boolean validPassword = login.VerificatePassword();
         
@@ -182,7 +181,6 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void cbxViewPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxViewPasswordActionPerformed
-        // TODO add your handling code here:
         if(cbxViewPassword.isSelected())
             txtPassword.setEchoChar((char)0);
         else
